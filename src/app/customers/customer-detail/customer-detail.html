@@ -1,0 +1,28 @@
+<div class="customer-detail">
+  @if (customer$ | async; as customer) {
+  <div class="detail-card">
+    <h2>{{ customer.name }} {{ customer.surname }}</h2>
+
+    <div class="row">
+      <span class="label">Codice</span>
+      <span>{{ customer.customerCode }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Email</span>
+      <span>{{ customer.email || '-' }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Telefono</span>
+      <span>{{ customer.shippingAddress || '-' }}</span>
+    </div>
+
+    <div class="actions">
+      <button class="btn-secondary" (click)="goBack()">← Indietro</button>
+      <button class="btn-primary" (click)="edit(customer.id!)">Modifica</button>
+      <button class="btn-danger" (click)="delete(customer.id!)">Elimina</button>
+    </div>
+  </div>
+  }
+</div>

@@ -1,0 +1,14 @@
+<p>customer-form works!</p>
+<h2>{{ isEdit ? 'Modifica cliente' : 'Nuovo cliente' }}</h2>
+
+<form (ngSubmit)="save()">
+  <input placeholder="Nome" [(ngModel)]="customer.name" name="name" required />
+  <input placeholder="Cognome" [(ngModel)]="customer.surname" name="surname" required />
+  <input placeholder="Indirizzo di spedizione" [(ngModel)]="customer.shippingAddress" name="shippingAddress" required />
+  <input placeholder="Indirizzo di fatturazione" [(ngModel)]="customer.billingAddress" name="billingAddress" required />
+  <input placeholder="Email" [(ngModel)]="customer.email" name="email" required />
+  <input placeholder="Codice fiscale" [(ngModel)]="customer.taxCode" name="taxCode" required />
+  <button type="submit">
+    {{ isEdit ? 'Salva modifiche' : 'Crea cliente' }}
+  </button>
+</form>
