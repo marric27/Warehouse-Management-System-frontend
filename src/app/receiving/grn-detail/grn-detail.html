@@ -1,0 +1,27 @@
+<div class="detail">
+  @if (grn$ | async; as grn) {
+  <div class="detail-card">
+    <h2>Grn {{ grn.code }}</h2>
+
+    <div class="row">
+      <span class="label">Data ricezione</span>
+      <span>{{ grn.receivingDate }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Fornitore</span>
+      <span>{{ grn.supplier }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Stato</span>
+      <span>{{ grn.state || '-' }}</span>
+    </div>
+
+    <div class="actions">
+      <button class="btn-secondary" (click)="goBack()">Indietro</button>
+      <button class="btn-primary" (click)="edit(grn.id!)">Modifica</button>
+      <button class="btn-danger" (click)="delete(grn.id!)">Elimina</button>
+    </div>
+  </div>
+  }

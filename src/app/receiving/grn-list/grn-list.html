@@ -1,0 +1,41 @@
+<div class="page">
+  <div class="page-header">
+    <h2>GRN</h2>
+    <button class="btn-primary" (click)="goToNewGrn()">+ Nuovo Grn</button>
+  </div>
+
+  <ul class="grn-list">
+      @if (grns$ | async; as page) {
+        @if (page.content.length === 0) {
+          <li class="empty-state">
+            <p>Nessun Grn</p>
+          </li>
+        }
+        @else {
+          @for (s of page.content; track s.id) {
+            <li class="grn-item" (click)="goToGrnDetail(s.id!)">
+              <div class="code">{{ s.code }}</div>
+
+              <div class="info">
+                <div class="receivingDate">Data di ricezione: {{ s.receivingDate }}</div>
+                <div class="supplier">Fornitore: {{ s.supplier }}</div>
+                <div class="state">Stato: {{ s.state }}</div>
+              </div>
+
+              <div class="arrow">▶</div>
+            </li>
+          }
+        }
+
+        <mat-paginator
+          [length]="page.totalElements"
+          [pageSize]="pageSize"
+          [pageIndex]="pageIndex"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          (page)="onPageChange($event)">
+        </mat-paginator>
+
+      }
+    
+  </ul>
+</div>

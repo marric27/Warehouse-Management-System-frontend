@@ -1,0 +1,17 @@
+<h2>{{ isEdit ? 'Edit GRN' : 'Create New GRN' }}</h2>
+
+<form [formGroup]="grnForm" (ngSubmit)="save()">
+  <mat-form-field appearance="fill">
+    <mat-label>Supplier Name</mat-label>
+    <input matInput type="text" formControlName="supplier" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Receiving Date</mat-label>
+    <input matInput type="date" formControlName="receivingDate" required />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="grnForm.invalid">
+    {{ isEdit ? 'Save Changes' : 'Create GRN' }}
+  </button>
+</form>

@@ -23,7 +23,7 @@ export class SlotList implements OnInit {
   constructor(private service: SlotService, private router: Router) {}
 
   ngOnInit(): void {
-    this.slots$ = this.service.getSlots(this.pageIndex, this.pageSize);
+    this.loadSlots();
   }
 
   loadSlots() {
