@@ -1,0 +1,5 @@
+export enum SlotCategory {
+  STANDARD = 'STANDARD',
+  FLAMMABLE = 'FLAMMABLE',
+  CONTROLLED_DRUG = 'CONTROLLED_DRUG'
+}

@@ -35,9 +35,7 @@ export class CustomerDetail {
 
   delete(id: number) {
     if (confirm('Vuoi eliminare questo cliente?')) {
-      this.service
-        .deleteCustomer(id)
-        .subscribe(() => this.router.navigate(['/customers']));
+      this.service.deleteCustomer(id).subscribe(() => this.router.navigate(['/customers']));
     }
   }
 

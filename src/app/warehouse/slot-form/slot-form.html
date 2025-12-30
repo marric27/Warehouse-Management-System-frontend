@@ -1,0 +1,28 @@
+<h2>{{ isEdit ? 'Modifica slot' : 'Nuovo slot' }}</h2>
+
+<form [formGroup]="slotForm" (ngSubmit)="save()">
+  <mat-form-field appearance="fill">
+    <mat-label>Picking Sequence number</mat-label>
+    <input matInput type="number" formControlName="pickingSequence" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Capacity</mat-label>
+    <input matInput type="number" formControlName="capacity" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <mat-select formControlName="allowedCategory" required>
+      @for (c of categories; track $index) {
+      <mat-option [value]="c">
+        {{ c }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="slotForm.invalid">
+    {{ isEdit ? 'Salva modifiche' : 'Crea slot' }}
+  </button>
+</form>

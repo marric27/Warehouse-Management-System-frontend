@@ -1,0 +1,27 @@
+<div class="detail">
+  @if (slot$ | async; as slot) {
+  <div class="detail-card">
+    <h2>Slot {{ slot.code }}</h2>
+
+    <div class="row">
+      <span class="label">Capacità</span>
+      <span>{{ slot.capacity }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Categoria</span>
+      <span>{{ slot.allowedCategory }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Picking Sequence</span>
+      <span>{{ slot.pickingSequence || '-' }}</span>
+    </div>
+
+    <div class="actions">
+      <button class="btn-secondary" (click)="goBack()">Indietro</button>
+      <button class="btn-primary" (click)="edit(slot.id!)">Modifica</button>
+      <button class="btn-danger" (click)="delete(slot.id!)">Elimina</button>
+    </div>
+  </div>
+  }

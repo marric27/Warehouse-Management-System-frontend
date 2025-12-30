@@ -14,9 +14,20 @@
     </div>
 
     <div class="row">
-      <span class="label">Telefono</span>
+      <span class="label">Shipping address</span>
       <span>{{ customer.shippingAddress || '-' }}</span>
     </div>
+
+    <div class="row">
+      <span class="label">Billing address</span>
+      <span>{{ customer.billingAddress || '-' }}</span>
+    </div>
+    
+    <div class="row">
+      <span class="label">Tax code</span>
+      <span>{{ customer.taxCode || '-' }}</span>
+    </div>
+
 
     <div class="actions">
       <button class="btn-secondary" (click)="goBack()">Indietro</button>
