@@ -1,5 +1,8 @@
-<a routerLink="/" style="margin-right: 10px;">Home</a>
-<a routerLink="products" style="margin-right: 10px;">Products</a>
-<a routerLink="customers" style="margin-right: 10px;">Customers</a>
-<a routerLink="warehouse" style="margin-right: 10px;">Warehouse</a>
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/" routerLinkActive="active-link">Home</button>
+  <button mat-button routerLink="products" routerLinkActive="active-link">Products</button>
+  <button mat-button routerLink="customers" routerLinkActive="active-link">Customers</button>
+  <button mat-button routerLink="warehouse" routerLinkActive="active-link">Warehouse</button>
+</mat-toolbar>
+
 <router-outlet></router-outlet>

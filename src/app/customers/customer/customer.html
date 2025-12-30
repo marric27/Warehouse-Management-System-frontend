@@ -1,22 +1,17 @@
 <div class="customers-page">
   <div class="page-header">
     <h2>Clienti</h2>
-
     <button class="btn-primary" (click)="goToNewCustomer()">+ Nuovo cliente</button>
   </div>
 
   <ul class="customer-list">
-      <!-- Estrazione dati dall'observable -->
       @if (customers$ | async; as page) {
-
-        <!-- Nessun cliente -->
         @if (page.content.length === 0) {
           <li class="empty-state">
             <p>Nessun cliente</p>
           </li>
         }
         @else {
-          <!-- Lista clienti -->
           @for (c of page.content; track c.id) {
             <li class="customer-item" (click)="goToCustomerDetail(c.id!)">
               <div class="code">{{ c.customerCode }}</div>
@@ -31,10 +26,10 @@
           }
         }
 
-        <!-- Paginatore -->
         <mat-paginator
           [length]="page.totalElements"
           [pageSize]="pageSize"
+          [pageIndex]="pageIndex"
           [pageSizeOptions]="[5, 10, 25, 100]"
           (page)="onPageChange($event)">
         </mat-paginator>

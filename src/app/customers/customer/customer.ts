@@ -5,21 +5,17 @@ import { Router } from '@angular/router';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { PageEvent } from '@angular/material/paginator';
-import { Observable, tap } from 'rxjs';
-import { Page } from './page.model';
+import { Observable } from 'rxjs';
+import { Page } from '../../common/page.model';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-customer',
-  standalone: true,
   imports: [MatPaginatorModule, AsyncPipe],
   templateUrl: './customer.html',
   styleUrl: './customer.css',
 })
 export class CustomerListComponent implements OnInit {
-  openDetail(arg0: any) {
-    throw new Error('Method not implemented.');
-  }
   customers$!: Observable<Page<Customer>>;
 
   pageIndex = 0;

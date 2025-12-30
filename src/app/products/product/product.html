@@ -1,0 +1,41 @@
+<div class="products-page">
+  <div class="page-header">
+    <h2>Prodotti</h2>
+    <button class="btn-primary" (click)="goToNewProduct()">+ Nuovo prodotto</button>
+  </div>
+
+  <ul class="product-list">
+      @if (products$ | async; as page) {
+        @if (page.content.length === 0) {
+          <li class="empty-state">
+            <p>Nessun prodotto</p>
+          </li>
+        }
+        @else {
+          @for (p of page.content; track p.id) {
+            <li class="product-item" (click)="goToProductDetail(p.id!)">
+              <div class="code">{{ p.code }}</div>
+
+              <div class="info">
+                <div class="name">{{ p.name }}</div>
+                <div class="id">ID: {{ p.id }}</div>
+                <div class="category">Categoria: {{ p.category }}</div>
+              </div>
+
+              <div class="arrow">▶</div>
+            </li>
+          }
+        }
+
+        <mat-paginator
+          [length]="page.totalElements"
+          [pageSize]="pageSize"
+          [pageIndex]="pageIndex"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          (page)="onPageChange($event)">
+        </mat-paginator>
+
+      }
+    
+  </ul>
+</div>

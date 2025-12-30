@@ -1,0 +1,23 @@
+<div class="product-detail">
+  @if (product$ | async; as product) {
+  <div class="detail-card">
+    <h2>{{ product.name }}</h2>
+
+    <div class="row">
+      <span class="label">Codice</span>
+      <span>{{ product.code }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Categoria</span>
+      <span>{{ product.category || '-' }}</span>
+    </div>
+
+    <div class="actions">
+      <button class="btn-secondary" (click)="goBack()">Indietro</button>
+      <button class="btn-primary" (click)="edit(product.id!)">Modifica</button>
+      <button class="btn-danger" (click)="delete(product.id!)">Elimina</button>
+    </div>
+  </div>
+  }
+</div>

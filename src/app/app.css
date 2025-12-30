@@ -1,0 +1,17 @@
+/* Evidenzia il link attivo */
+.active-link {
+  font-weight: bold;
+  border-bottom: 2px solid white; /* o un colore a piacere */
+}
+
+/* Spaziatura tra i bottoni (Material gestisce già margini, ma puoi regolare) */
+mat-toolbar button {
+  margin-right: 16px;
+}
+
+/* Facoltativo: rendere la toolbar sticky in alto */
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
