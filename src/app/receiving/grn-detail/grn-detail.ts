@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Grn } from '../grn-list/grn.model';
+import { Grn } from '../models/grn.model';
 import { GrnService } from '../services/grn.service';
 import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';

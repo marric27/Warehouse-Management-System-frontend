@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Grn } from '../grn-list/grn.model';
+import { Grn } from '../models/grn.model';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GrnService } from '../services/grn.service';
 import { ActivatedRoute, Router } from '@angular/router';
