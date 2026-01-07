@@ -36,7 +36,6 @@ export class ItemForm {
       notCompliantQty: new FormControl(this.item?.notCompliantQty || 0),
     });
     this.grnId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('GRN ID:', this.grnId);
   }
 
   save() {

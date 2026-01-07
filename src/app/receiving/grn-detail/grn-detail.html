@@ -45,7 +45,7 @@
       <button matButton="filled" class="btn-secondary" (click)="goBack()">Indietro</button>
       <button matButton="filled" (click)="edit(grn.id!)">Modifica</button>
       <button matButton="filled" class="btn-danger" (click)="delete(grn.id!)">Elimina</button>
-      <button matButton="filled" (click)="addItem()">Add Item</button>
+      <button matButton="filled" (click)="addItem()" [disabled]="grn.state === 'CLOSED'">Add Item</button>
     </div>
   </div>
   }
