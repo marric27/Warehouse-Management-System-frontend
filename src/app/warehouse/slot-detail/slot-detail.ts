@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { Slot } from '../slot-list/slot.model';
 import { SlotService } from '../services/slot.service';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-slot-detail',
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './slot-detail.html',
   styleUrl: './slot-detail.css',
 })

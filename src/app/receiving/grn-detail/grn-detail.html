@@ -1,7 +1,7 @@
 <div class="detail">
   @if (grn$ | async; as grn) {
   <div class="detail-card">
-    <h2>Grn {{ grn.code }}</h2>
+    <h2>{{ grn.code }}</h2>
 
     <div class="row">
       <span class="label">Data ricezione</span>
@@ -19,9 +19,10 @@
     </div>
 
     <div class="actions">
-      <button class="btn-secondary" (click)="goBack()">Indietro</button>
-      <button class="btn-primary" (click)="edit(grn.id!)">Modifica</button>
-      <button class="btn-danger" (click)="delete(grn.id!)">Elimina</button>
+      <button matButton="filled" class="btn-secondary" (click)="goBack()">Indietro</button>
+      <button matButton="filled" class="btn-primary" (click)="edit(grn.id!)">Modifica</button>
+      <button matButton="filled" class="btn-danger" (click)="delete(grn.id!)">Elimina</button>
+      <button matButton="filled">Add Item</button>
     </div>
   </div>
   }

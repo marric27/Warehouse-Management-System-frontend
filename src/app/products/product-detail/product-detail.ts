@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 import { Product } from '../product/product.model';
 import { ProductService } from '../services/product.service';
 import { CommonModule } from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './product-detail.html',
   styleUrl: './product-detail.css',
 })

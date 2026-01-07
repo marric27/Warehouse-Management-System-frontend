@@ -4,10 +4,11 @@ import { Customer } from '../customer/customer.model';
 import { CustomerService } from '../customer/customer.service';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-customer-detail',
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './customer-detail.html',
   styleUrls: ['./customer-detail.css'],
 })
