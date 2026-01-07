@@ -13,9 +13,12 @@ import { GrnList } from './receiving/grn-list/grn-list';
 import { GrnDetail } from './receiving/grn-detail/grn-detail';
 import { GrnForm } from './receiving/grn-form/grn-form';
 import { StockunitForm } from './goodsin/stockunit-form/stockunit-form';
+import { ItemForm } from './receiving/item-form/item-form';
+import { NotFound } from './common/error/not-found/not-found';
 
 export const routes: Routes = [
-  { path: '', component: Home },
+  { path: '', redirectTo: '/homepage', pathMatch: 'full' },
+  { path: 'homepage', component: Home },
   { path: 'customers', component: CustomerListComponent },
   { path: 'customers/new', component: CustomerForm },
   { path: 'customers/:id', component: CustomerDetail },
@@ -24,13 +27,18 @@ export const routes: Routes = [
   { path: 'slots/new', component: SlotForm },
   { path: 'slots/:id', component: SlotDetail },
 
-  {path: 'products', component: ProductListComponent},
+  { path: 'products', component: ProductListComponent },
   { path: 'products/new', component: ProductForm },
   { path: 'products/:id', component: ProductDetail },
 
   { path: 'grns', component: GrnList },
   { path: 'grns/new', component: GrnForm },
   { path: 'grns/:id', component: GrnDetail },
+
+  { path: 'add-grn-item/:id', component: ItemForm },
+
+  { path: '404', component: NotFound },
+  { path: '**', redirectTo: '/404' },
 
   { path: 'stockunit', component: StockunitForm },
 ];

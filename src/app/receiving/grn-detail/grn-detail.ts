@@ -14,12 +14,13 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class GrnDetail implements OnInit {
   grn$?: Observable<Grn>;
+  grnId!: number;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: GrnService) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadGrn(id);
+    this.grnId = Number(this.route.snapshot.paramMap.get('id'));
+    this.loadGrn(this.grnId);
   }
 
   loadGrn(id: number): void {
@@ -38,6 +39,10 @@ export class GrnDetail implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/grns']);
+  }
+
+  addItem(): void {
+    this.router.navigate(['/add-grn-item', this.grnId]);
   }
 
 }
