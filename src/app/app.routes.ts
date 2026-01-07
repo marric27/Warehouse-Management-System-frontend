@@ -12,6 +12,7 @@ import { SlotDetail } from './warehouse/slot-detail/slot-detail';
 import { GrnList } from './receiving/grn-list/grn-list';
 import { GrnDetail } from './receiving/grn-detail/grn-detail';
 import { GrnForm } from './receiving/grn-form/grn-form';
+import { ItemForm } from './receiving/item-form/item-form';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -30,4 +31,6 @@ export const routes: Routes = [
   { path: 'grns', component: GrnList },
   { path: 'grns/new', component: GrnForm },
   { path: 'grns/:id', component: GrnDetail },
+
+  { path: 'add-grn-item/:id', component: ItemForm }
 ];

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Grn } from '../grn-list/grn.model';
+import { Grn } from '../models/grn.model';
 import { GrnService } from '../services/grn.service';
 import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
@@ -14,12 +14,13 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class GrnDetail implements OnInit {
   grn$?: Observable<Grn>;
+  grnId!: number;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: GrnService) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadGrn(id);
+    this.grnId = Number(this.route.snapshot.paramMap.get('id'));
+    this.loadGrn(this.grnId);
   }
 
   loadGrn(id: number): void {
@@ -38,6 +39,10 @@ export class GrnDetail implements OnInit {
 
   goBack(): void {
     this.router.navigate(['/grns']);
+  }
+
+  addItem(): void {
+    this.router.navigate(['/add-grn-item', this.grnId]);
   }
 
 }

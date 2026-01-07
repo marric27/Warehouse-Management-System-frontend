@@ -18,11 +18,35 @@
       <span>{{ grn.state || '-' }}</span>
     </div>
 
+    <div class="row">
+      <span class="label">Items</span>
+      <ul class="grn-list">
+        @if(grn.items.length === 0) {
+          <li class="empty-state">
+            <p>No items</p>
+          </li>
+        }
+        @else {
+        @for (item of grn.items; track item.id) {
+        <li class="grn-item">
+          <div class="info">
+            <div class="code">Code: {{ item.code }}</div>
+            <div class="receivingDate">ProductCode: {{ item.productCode }}</div>
+            <div class="supplier">Received Qty: {{ item.receivedQty }}</div>
+            <div class="state">Stato: {{ item.state }}</div>
+          </div>
+        </li>
+        }
+        }
+      </ul>
+    </div>
+
     <div class="actions">
       <button matButton="filled" class="btn-secondary" (click)="goBack()">Indietro</button>
-      <button matButton="filled" class="btn-primary" (click)="edit(grn.id!)">Modifica</button>
+      <button matButton="filled" (click)="edit(grn.id!)">Modifica</button>
       <button matButton="filled" class="btn-danger" (click)="delete(grn.id!)">Elimina</button>
-      <button matButton="filled">Add Item</button>
+      <button matButton="filled" (click)="addItem()">Add Item</button>
     </div>
   </div>
   }
+</div>
