@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Page } from '../../common/page.model';
-import { Grn } from '../grn-list/grn.model';
+import { Grn } from '../models/grn.model';
 
 @Injectable({
     providedIn: 'root'

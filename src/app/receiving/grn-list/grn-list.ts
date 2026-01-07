@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Page } from '../../common/page.model';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { GrnService } from '../services/grn.service';
-import { Grn } from './grn.model';
+import { Grn } from '../models/grn.model';
 import { AsyncPipe } from '@angular/common';
 import { Router } from '@angular/router';
 
