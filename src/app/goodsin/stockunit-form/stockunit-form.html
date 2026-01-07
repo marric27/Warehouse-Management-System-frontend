@@ -1,6 +1,10 @@
 <h2>Create New Stock Unit</h2>
 
 <form [formGroup]="suForm" (ngSubmit)="save()">
+  <mat-form-field appearance="fill">
+    <mat-label>Grn Item Id</mat-label>
+    <input matInput type="text" formControlName="itemId" required />
+  </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Batch Number</mat-label>
@@ -25,9 +29,11 @@
   <mat-form-field appearance="fill">
     <mat-label>Category</mat-label>
     <mat-select formControlName="category" required>
-      <mat-option value="CONTROLLED_DRUG">CONTROLLED_DRUG</mat-option>
-      <mat-option value="GENERAL_DRUG">GENERAL_DRUG</mat-option>
-      <mat-option value="SUPPLIES">SUPPLIES</mat-option>
+      @for (c of categories; track $index) {
+      <mat-option [value]="c">
+        {{ c }}
+      </mat-option>
+      }
     </mat-select>
   </mat-form-field>
 

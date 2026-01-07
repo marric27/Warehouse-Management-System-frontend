@@ -1,33 +1,32 @@
 form {
-  max-width: 400px;
-  margin: 20px auto;
+  max-width: 500px; /* leggermente più largo per mat-form-field */
+  margin: 30px auto;
   padding: 30px;
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px; /* più spazio tra i campi */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-form input {
+mat-form-field {
+  width: 100%; /* assicurati che occupi tutta la larghezza disponibile */
+}
+
+mat-form-field input {
   padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
   font-size: 16px;
-  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-form input:focus {
-  outline: none;
+mat-form-field.mat-focused .mat-form-field-outline {
+  color: #4caf50;
   border-color: #4caf50;
-  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
-form button {
-  padding: 12px;
-  border: none;
+button[mat-raised-button] {
+  padding: 12px 0;
   border-radius: 8px;
   background: linear-gradient(90deg, #4caf50, #45a049);
   color: white;
@@ -36,14 +35,14 @@ form button {
   transition: background 0.3s, transform 0.2s;
 }
 
-form button:hover {
+button[mat-raised-button]:hover {
   background: linear-gradient(90deg, #45a049, #4caf50);
   transform: translateY(-2px);
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-weight: 600;
   color: #333;
 }

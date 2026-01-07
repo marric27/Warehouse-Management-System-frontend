@@ -1,0 +1,63 @@
+<div class="detail">
+  @if (grnItem$ | async; as item) {
+  <div class="detail-card">
+
+    <h2>{{ item.code }}</h2>
+
+    <div class="row">
+      <span class="label">Product Code</span>
+      <span>{{ item.productCode }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Expected Qty</span>
+      <span>{{ item.expectedQty }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Received Qty</span>
+      <span>{{ item.receivedQty }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Compliant Qty</span>
+      <span>{{ item.compliantQty }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Not Compliant Qty</span>
+      <span>{{ item.notCompliantQty }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">State</span>
+      <span class="badge">{{ item.state }}</span>
+    </div>
+
+    <div class="row column">
+      <span class="label">Checking Info</span>
+
+      <ul class="checking-list">
+        @if (item.checkingInfoList.length === 0) {
+          <li class="empty-state">No checking info available</li>
+        }
+        @else {
+          @for (check of item.checkingInfoList; track check.id) {
+            <li class="checking-info">
+              <div><strong>Type:</strong> {{ check.batchNumber }}</div>
+              <div><strong>Result:</strong> {{ check.code }}</div>
+              <div><strong>Notes:</strong> {{ check.state }}</div>
+            </li>
+          }
+        }
+      </ul>
+    </div>
+
+    <div class="actions">
+      <button matButton="filled" class="btn-secondary" (click)="goBack()">Indietro</button>
+      <button matButton="filled" [disabled]="item.state === 'CLOSED' || item.state === 'PUTAWAY'" (click)="createStockUnit(item.id)">Crea Stock Unit</button>
+    </div>
+
+  </div>
+  }
+</div>

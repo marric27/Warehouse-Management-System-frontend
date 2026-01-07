@@ -1,4 +1,5 @@
 import { ItemState } from "../../common/itemState.enum";
+import { CheckingInfo } from "../../goodsin/models/checking-info.model";
 
 export interface GrnItem {
     id: number;
@@ -9,5 +10,5 @@ export interface GrnItem {
     compliantQty: number;
     notCompliantQty: number;
     state: ItemState;
-    // list checking info
+    checkingInfoList: CheckingInfo[];
 }

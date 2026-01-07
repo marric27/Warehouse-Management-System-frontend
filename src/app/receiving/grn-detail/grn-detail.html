@@ -28,7 +28,7 @@
         }
         @else {
         @for (item of grn.items; track item.id) {
-        <li class="grn-item">
+        <li class="grn-item" (click)="viewItemDetail(item.id)">
           <div class="info">
             <div class="code">Code: {{ item.code }}</div>
             <div class="receivingDate">ProductCode: {{ item.productCode }}</div>

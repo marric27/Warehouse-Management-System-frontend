@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Grn } from '../models/grn.model';
 import { GrnService } from '../services/grn.service';
 import { CommonModule } from '@angular/common';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-grn-detail',
@@ -45,4 +45,7 @@ export class GrnDetail implements OnInit {
     this.router.navigate(['/add-grn-item', this.grnId]);
   }
 
+  viewItemDetail(itemId: number) {
+    this.router.navigate(['/grns', this.grnId, 'items', itemId]);
+  }
 }
