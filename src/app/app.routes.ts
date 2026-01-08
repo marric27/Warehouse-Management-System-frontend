@@ -40,7 +40,6 @@ export const routes: Routes = [
   { path: 'add-grn-item/:id', component: ItemForm },
   { path: 'grns/:grnId/items/:itemId', component: ItemDetail },
 
-  { path: 'stockunit', component: StockunitForm },
   { path: 'create-stock-unit/:grnId/:itemId', component: StockunitForm },
 
   { path: 'putaway', component: PutawayForm },
