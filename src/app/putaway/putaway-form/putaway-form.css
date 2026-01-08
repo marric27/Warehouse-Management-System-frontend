@@ -1,0 +1,40 @@
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #3f51b5; /* colore primario Material */
+  font-weight: 500;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto; /* centra il form */
+  padding: 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #303f9f; /* effetto hover leggero */
+}
+
+button[disabled] {
+  background-color: #c5cae9 !important;
+  color: #9fa8da !important;
+  cursor: not-allowed;
+}

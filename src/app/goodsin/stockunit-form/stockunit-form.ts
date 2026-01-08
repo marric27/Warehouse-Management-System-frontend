@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SlotCategory } from '../../common/slotCategory.enum';
-import { StockunitService } from '../services/stockunit-service';
+import { StockUnitService } from '../services/stockunit-service';
 
 @Component({
   selector: 'app-stockunit-form',
@@ -20,7 +20,7 @@ export class StockunitForm {
   itemId!: number;
 
   constructor(
-    private stockUnitService: StockunitService,
+    private stockUnitService: StockUnitService,
     private router: Router,
     private route: ActivatedRoute
   ) {}

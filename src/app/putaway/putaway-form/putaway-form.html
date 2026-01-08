@@ -1,0 +1,29 @@
+<h2>Allocate Stock Unit</h2>
+
+<form [formGroup]="putawayForm" (ngSubmit)="save()">
+  <mat-form-field appearance="fill">
+    <mat-label>Stock Unit</mat-label>
+    <mat-select formControlName="stockUnit" required>
+      @for (stockUnit of stockUnits; track $index) {
+      <mat-option [value]="stockUnit">
+        {{ stockUnit.id }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Slot</mat-label>
+    <mat-select formControlName="slot" required>
+      @for (slot of slots; track $index) {
+      <mat-option [value]="slot">
+        {{ slot.code }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="putawayForm.invalid">
+    Putaway Stock Unit
+  </button>
+</form>

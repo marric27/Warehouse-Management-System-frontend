@@ -16,6 +16,7 @@ import { StockunitForm } from './goodsin/stockunit-form/stockunit-form';
 import { ItemForm } from './receiving/item-form/item-form';
 import { NotFound } from './common/error/not-found/not-found';
 import { ItemDetail } from './receiving/item-detail/item-detail';
+import { PutawayForm } from './putaway/putaway-form/putaway-form';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -41,6 +42,8 @@ export const routes: Routes = [
 
   { path: 'stockunit', component: StockunitForm },
   { path: 'create-stock-unit/:grnId/:itemId', component: StockunitForm },
+
+  { path: 'putaway', component: PutawayForm },
 
   { path: '404', component: NotFound },
   { path: '**', redirectTo: '/404' },

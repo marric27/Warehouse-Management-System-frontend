@@ -19,6 +19,9 @@ export class SlotService {
             },
         });
     }
+    getAllSlots(): Observable<Slot[]> {
+        return this.http.get<Slot[]>(`${this.baseUrl}/all`);
+    }
     getSlotById(id: number): Observable<Slot> {
         return this.http.get<Slot>(`${this.baseUrl}/${id}`);
     }
