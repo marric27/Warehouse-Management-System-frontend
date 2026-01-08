@@ -25,7 +25,7 @@ export class PutawayForm {
 
   ngOnInit() {
     this.stockUnitService.getAllStockunits().subscribe(stockUnits => {
-      this.stockUnits = stockUnits;
+      this.stockUnits = stockUnits.filter(su => !su.slotId); // prendo su non ancora allocati
     });
     this.slotService.getAllSlots().subscribe(slots => {
       this.slots = slots;

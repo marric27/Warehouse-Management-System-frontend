@@ -7,4 +7,5 @@ export interface StockUnit {
     productCode: string;
     quantity: number;
     category: SlotCategory;
+    slotId?: number;
 }
