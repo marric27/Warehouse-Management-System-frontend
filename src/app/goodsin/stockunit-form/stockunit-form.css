@@ -1,44 +1,39 @@
 form {
-  max-width: 400px;
+  max-width: 420px;
   margin: 20px auto;
   padding: 30px;
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-form input {
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+mat-form-field {
+  width: 100%;
 }
 
-form input:focus {
-  outline: none;
-  border-color: #4caf50;
-  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-}
-
-form button {
+button[mat-raised-button] {
+  margin-top: 10px;
   padding: 12px;
-  border: none;
   border-radius: 8px;
-  background: linear-gradient(90deg, #4caf50, #45a049);
-  color: white;
   font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-form button:hover {
-  background: linear-gradient(90deg, #45a049, #4caf50);
+button[mat-raised-button]:hover:not(:disabled) {
   transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+button[mat-raised-button]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 h2 {
