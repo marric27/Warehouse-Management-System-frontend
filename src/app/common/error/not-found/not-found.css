@@ -1,0 +1,63 @@
+/* Wrapper che evita sovrapposizioni con toolbar/layout */
+.not-found-wrapper {
+  min-height: calc(100vh - 64px); /* 64px = altezza standard toolbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+}
+
+/* Card */
+.not-found-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #ffffff;
+  padding: 32px 36px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* Titolo 404 */
+.not-found-card h1 {
+  font-size: 88px;
+  margin: 0;
+  line-height: 1;
+  color: #e53935;
+  font-weight: 700;
+}
+
+/* Sottotitolo */
+.not-found-card h2 {
+  margin: 12px 0 16px;
+  font-size: 22px;
+  color: #333;
+}
+
+/* Testo */
+.not-found-card p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+/* Bottone */
+.not-found-card button {
+  padding: 10px 22px;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
+/* Responsive fix */
+@media (max-width: 480px) {
+  .not-found-card {
+    padding: 24px;
+  }
+
+  .not-found-card h1 {
+    font-size: 72px;
+  }
+}
