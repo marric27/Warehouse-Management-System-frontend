@@ -44,9 +44,12 @@
         @else {
           @for (check of item.checkingInfoList; track check.id) {
             <li class="checking-info">
-              <div><strong>Type:</strong> {{ check.batchNumber }}</div>
-              <div><strong>Result:</strong> {{ check.code }}</div>
-              <div><strong>Notes:</strong> {{ check.state }}</div>
+              <div><strong>Code:</strong> {{ check.code }}</div>
+              <div><strong>Batch Number</strong> {{ check.batchNumber }}</div>
+              <div><strong>State:</strong> {{ check.state }}</div>
+              <div><strong>Quantity:</strong> {{ check.quantity }}</div>
+              <div><strong>Expiration date:</strong> {{ check.expirationDate }}</div>
+              <div><strong>Stock Unit Id:</strong> {{ check.stockUnitId }}</div>
             </li>
           }
         }
@@ -55,7 +58,7 @@
 
     <div class="actions">
       <button matButton="filled" class="btn-secondary" (click)="goBack()">Indietro</button>
-      <button matButton="filled" [disabled]="item.state === 'CLOSED' || item.state === 'PUTAWAY'" (click)="createStockUnit(item.id)">Crea Stock Unit</button>
+      <button matButton="filled" [disabled]="item.state === 'CHECKED' || item.state === 'PUTAWAY'" (click)="createStockUnit(item.id)">Crea Stock Unit</button>
     </div>
 
   </div>

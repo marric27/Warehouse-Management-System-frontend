@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -16,30 +16,29 @@ import { StockunitService } from '../services/stockunit-service';
 export class StockunitForm {
   suForm!: FormGroup;
   categories = Object.values(SlotCategory);
-  //itemId!: number;
+  grnId!: number;
+  itemId!: number;
 
   constructor(
-    private service: StockunitService,
-    private router: Router
+    private stockUnitService: StockunitService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.suForm = new FormGroup({
-      itemId: new FormControl(0),
       batchNumber: new FormControl(''),
       expirationDate: new FormControl(''),
-      productCode: new FormControl(''),
       quantity: new FormControl(0),
-      category: new FormControl(''),
     });
-    //this.itemId = Number(this.route.snapshot.paramMap.get('itemId'));
-
+    this.grnId = Number(this.route.snapshot.paramMap.get('grnId'));
+    this.itemId = Number(this.route.snapshot.paramMap.get('itemId'));
   }
 
   save() {
-    const request$ = this.service.createStockunit(this.suForm.value.itemId, this.suForm.value);
+    const request$ = this.stockUnitService.createStockunit(this.itemId, this.suForm.value);
     request$.subscribe(() => {
-      this.router.navigate(['/stockunit']);
+      this.router.navigate([`/grns/${this.grnId}/items/${this.itemId}`]);
     });
   }
 }

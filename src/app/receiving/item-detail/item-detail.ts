@@ -34,7 +34,7 @@ export class ItemDetail {
   }
 
   createStockUnit(id: number): void {
-    this.router.navigate(['/create-stock-unit/', this.grnItemId]);
+    this.router.navigate(['/create-stock-unit/', this.grnId, this.grnItemId]);
   }
 
 }

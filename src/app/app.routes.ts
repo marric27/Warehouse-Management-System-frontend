@@ -38,11 +38,10 @@ export const routes: Routes = [
 
   { path: 'add-grn-item/:id', component: ItemForm },
   { path: 'grns/:grnId/items/:itemId', component: ItemDetail },
-  
+
   { path: 'stockunit', component: StockunitForm },
-  { path: 'create-stock-unit/:id', component: StockunitForm },
+  { path: 'create-stock-unit/:grnId/:itemId', component: StockunitForm },
 
   { path: '404', component: NotFound },
   { path: '**', redirectTo: '/404' },
-
 ];
