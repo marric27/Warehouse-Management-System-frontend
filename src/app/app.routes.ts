@@ -18,36 +18,45 @@ import { NotFound } from './common/error/not-found/not-found';
 import { ItemDetail } from './receiving/item-detail/item-detail';
 import { PutawayForm } from './putaway/putaway-form/putaway-form';
 import { OrderForm } from './outbound/order-form/order-form';
+import { Login } from './login/login';
+import { authenticationGuard } from './authentication-guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/homepage', pathMatch: 'full' },
-  { path: 'homepage', component: Home },
-  { path: 'customers', component: CustomerListComponent },
-  { path: 'customers/new', component: CustomerForm },
-  { path: 'customers/:id', component: CustomerDetail },
+  { path: 'login', component: Login },
+  {
+    path: '',
+    canActivate: [authenticationGuard],
+    children: [
+      { path: '', redirectTo: '/homepage', pathMatch: 'full' },
+      { path: 'homepage', component: Home },
 
-  { path: 'slots', component: SlotList },
-  { path: 'slots/new', component: SlotForm },
-  { path: 'slots/:id', component: SlotDetail },
+      { path: 'customers', component: CustomerListComponent },
+      { path: 'customers/new', component: CustomerForm },
+      { path: 'customers/:id', component: CustomerDetail },
 
-  { path: 'products', component: ProductListComponent },
-  { path: 'products/new', component: ProductForm },
-  { path: 'products/:id', component: ProductDetail },
+      { path: 'slots', component: SlotList },
+      { path: 'slots/new', component: SlotForm },
+      { path: 'slots/:id', component: SlotDetail },
 
-  { path: 'grns', component: GrnList },
-  { path: 'grns/new', component: GrnForm },
-  { path: 'grns/:id', component: GrnDetail },
+      { path: 'products', component: ProductListComponent },
+      { path: 'products/new', component: ProductForm },
+      { path: 'products/:id', component: ProductDetail },
 
-  { path: 'add-grn-item/:id', component: ItemForm },
-  { path: 'grns/:grnId/items/:itemId', component: ItemDetail },
+      { path: 'grns', component: GrnList },
+      { path: 'grns/new', component: GrnForm },
+      { path: 'grns/:id', component: GrnDetail },
 
-  { path: 'create-stock-unit/:grnId/:itemId', component: StockunitForm },
+      { path: 'add-grn-item/:id', component: ItemForm },
+      { path: 'grns/:grnId/items/:itemId', component: ItemDetail },
 
-  { path: 'putaway', component: PutawayForm },
+      { path: 'create-stock-unit/:grnId/:itemId', component: StockunitForm },
 
-  { path: 'orders', component: OrderForm },
-  { path: 'orders/new', component: OrderForm },
+      { path: 'putaway', component: PutawayForm },
 
+      { path: 'orders', component: OrderForm },
+      { path: 'orders/new', component: OrderForm },
+    ],
+  },
   { path: '404', component: NotFound },
   { path: '**', redirectTo: '/404' },
 ];
