@@ -17,11 +17,11 @@ import { ItemForm } from './receiving/item-form/item-form';
 import { NotFound } from './common/error/not-found/not-found';
 import { ItemDetail } from './receiving/item-detail/item-detail';
 import { PutawayForm } from './putaway/putaway-form/putaway-form';
-import { OrderForm } from './outbound/order-form/order-form';
+import { OrderForm } from './outbound/salesOrder/order-form/order-form';
 import { Login } from './login/login';
 import { authenticationGuard } from './authentication-guard';
-import { OrderList } from './outbound/order-list/order-list';
-import { OrderDetail } from './outbound/order-detail/order-detail';
+import { OrderList } from './outbound/salesOrder/order-list/order-list';
+import { OrderDetail } from './outbound/salesOrder/order-detail/order-detail';
 
 export const routes: Routes = [
   { path: 'login', component: Login },

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
-import { Page } from '../../common/page.model';
-import { Order } from '../models/order.model';
-import { OrderService } from '../services/order.service';
+import { Page } from '../../../common/page.model';
+import { Order } from '../../models/order.model';
+import { OrderService } from '../../services/order.service';
 import { Router } from '@angular/router';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 

@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { OrderService } from '../services/order.service';
-import { Order } from '../models/order.model';
+import { OrderService } from '../../services/order.service';
+import { Order } from '../../models/order.model';
 
 @Component({
   selector: 'app-order-detail',
