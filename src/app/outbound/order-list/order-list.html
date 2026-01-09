@@ -1,0 +1,39 @@
+<div class="page">
+  <div class="page-header">
+    <h2>Ordini</h2>
+    <button class="btn-primary" (click)="newOrder()">+ Nuovo ordine</button>
+  </div>
+
+  <ul class="list">
+      @if (orders$ | async; as page) {
+        @if (page.content.length === 0) {
+          <li class="empty-state">
+            <p>Nessun ordine</p>
+          </li>
+        }
+        @else {
+          @for (o of page.content; track o.id) {
+            <li class="item" (click)="goToOrderDetail(o.id!)">
+              <div class="code">{{ o.code }}</div>
+
+              <div class="info">
+                <div class="name">{{ o.date }}</div>
+              </div>
+
+              <div class="arrow">▶</div>
+            </li>
+          }
+        }
+
+        <mat-paginator
+          [length]="page.totalElements"
+          [pageSize]="pageSize"
+          [pageIndex]="pageIndex"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          (page)="onPageChange($event)">
+        </mat-paginator>
+
+      }
+    
+  </ul>
+</div>

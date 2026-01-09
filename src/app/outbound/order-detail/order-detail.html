@@ -1,0 +1,35 @@
+<div class="detail">
+  @if (order$ | async; as order) {
+  <div class="detail-card">
+    <h2>{{ order.code }}</h2>
+
+    <div class="row">
+      <span class="label">Effettuato in data</span>
+      <span>{{ order.date }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Linee Ordine</span>
+      <ul class="list">
+        @if(order.salesOrderLineList.length === 0) {
+        <li class="empty-state">
+          <p>No lines</p>
+        </li>
+        } @else { @for (line of order.salesOrderLineList; track line.id) {
+        <li class="item" (click)="viewLineDetail(line.id!)">
+          <div class="info">
+            <div class="productCode">ProductCode: {{ line.productCode }}</div>
+            <div class="quantity">Received Qty: {{ line.quantity }}</div>
+          </div>
+        </li>
+        } }
+      </ul>
+    </div>
+
+    <div class="actions">
+      <button matButton="filled" class="btn-secondary" (click)="goBack()">Indietro</button>
+      <button matButton="filled" class="btn-danger" (click)="delete(order.id!)">Elimina</button>
+    </div>
+  </div>
+  }
+</div>

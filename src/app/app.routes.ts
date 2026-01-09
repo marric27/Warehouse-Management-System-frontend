@@ -20,6 +20,8 @@ import { PutawayForm } from './putaway/putaway-form/putaway-form';
 import { OrderForm } from './outbound/order-form/order-form';
 import { Login } from './login/login';
 import { authenticationGuard } from './authentication-guard';
+import { OrderList } from './outbound/order-list/order-list';
+import { OrderDetail } from './outbound/order-detail/order-detail';
 
 export const routes: Routes = [
   { path: 'login', component: Login },
@@ -53,8 +55,9 @@ export const routes: Routes = [
 
       { path: 'putaway', component: PutawayForm },
 
-      { path: 'orders', component: OrderForm },
+      { path: 'orders', component: OrderList },
       { path: 'orders/new', component: OrderForm },
+      { path: 'orders/:id', component: OrderDetail },
     ],
   },
   { path: '404', component: NotFound },

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from '../models/order.model';
+import { Page } from '../../common/page.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,4 +20,20 @@ export class OrderService {
     return this.http.get<Order[]>(`${this.baseUrl}/orders`);
   }
 
+  getOrdersPaged(page: number, size: number) {
+    return this.http.get<Page<Order>>(`${this.baseUrl}/orders-paged`, {
+      params: {
+        page,
+        size,
+      },
+    });
+  }
+
+  getOrderById(id: number) {
+    return this.http.get<Order>(`${this.baseUrl}/orders/${id}`);
+  }
+
+  deleteOrder(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  }
 }
