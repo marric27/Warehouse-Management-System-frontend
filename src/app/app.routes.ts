@@ -25,6 +25,8 @@ import { OrderDetail } from './outbound/salesOrder/order-detail/order-detail';
 import { PicklistList } from './outbound/release/picklist-list/picklist-list';
 import { PicklistDetail } from './outbound/release/picklist-detail/picklist-detail';
 import { PicklistPage } from './outbound/release/picklistpage/picklistpage';
+import { PicklistForm } from './outbound/release/picklist-form/picklist-form';
+import { NextItem } from './picking/next-item/next-item';
 
 export const routes: Routes = [
   { path: 'login', component: Login },
@@ -64,8 +66,13 @@ export const routes: Routes = [
 
       {
         path: 'picklists', component: PicklistPage,
-        children: [{ path: ':id', component: PicklistDetail }],
+        children: [
+          { path: ':id', component: PicklistDetail }],
       },
+      { path: 'picklists/new', component: PicklistForm },
+
+      { path: 'picking/next-item', component: NextItem },
+
     ],
   },
   { path: '404', component: NotFound },

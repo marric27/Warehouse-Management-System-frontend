@@ -14,7 +14,7 @@ import { PicklistService } from '../../services/picklist.service';
   styleUrl: './picklist-list.css',
 })
 export class PicklistList {
-  picklists?: Observable<Page<Picklist>>;
+  picklists$?: Observable<Page<Picklist>>;
   pageIndex = 0;
   pageSize = 10;
   totalElements = 0;
@@ -22,13 +22,13 @@ export class PicklistList {
   constructor(private service: PicklistService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
-      this.picklists = this.service.getPicklists(this.pageIndex, this.pageSize);
+      this.picklists$ = this.service.getPicklists(this.pageIndex, this.pageSize);
   }
 
   onPageChange(event: PageEvent) {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
-    this.picklists = this.service.getPicklists(this.pageIndex, this.pageSize);
+    this.picklists$ = this.service.getPicklists(this.pageIndex, this.pageSize);
   }
 
   newPicklist() {
