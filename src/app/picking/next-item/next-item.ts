@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import {
   FormGroup,
   FormsModule,
@@ -23,7 +23,7 @@ export class NextItem {
   picklists: Picklist[] = [];
   receivedItem: any = null;
 
-  constructor(private service: PickingService) {}
+  constructor(private service: PickingService, private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.service.getPicklists().subscribe((picklists) => {
@@ -39,6 +39,7 @@ export class NextItem {
       next: (res) => {
         this.receivedItem = res;
         console.log(this.receivedItem);
+        this.cd.detectChanges();
       },
       error: (err) => console.error(err),
     });

@@ -45,3 +45,15 @@ button:disabled {
 * {
   transition: all 0.2s ease-in-out;
 }
+
+.not-found {
+  color: #b00020;          /* rosso “attenzione” */
+  font-weight: bold;        /* testo in grassetto */
+  background-color: #ffe6e6; /* sfondo leggermente rosato */
+  padding: 10px 15px;      /* padding intorno */
+  border-radius: 5px;      /* angoli arrotondati */
+  text-align: center;      /* centrato */
+  margin-top: 15px;        /* spazio sopra */
+  border: 1px solid #b00020; /* bordo rosso */
+  font-size: 1rem;         /* dimensione leggibile */
+}
