@@ -69,7 +69,7 @@ export const routes: Routes = [
         children: [
           { path: ':id', component: PicklistDetail }],
       },
-      { path: 'picklists/new', component: PicklistForm },
+      { path: 'picklist/new', component: PicklistForm },
 
       { path: 'picking/next-item', component: NextItem },
 

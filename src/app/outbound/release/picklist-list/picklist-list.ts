@@ -32,6 +32,6 @@ export class PicklistList {
   }
 
   newPicklist() {
-    this.router.navigate(['/picklists/new']);
+    this.router.navigate(['/picklist/new']);
   }
 }
