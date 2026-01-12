@@ -22,6 +22,9 @@ import { Login } from './login/login';
 import { authenticationGuard } from './authentication-guard';
 import { OrderList } from './outbound/salesOrder/order-list/order-list';
 import { OrderDetail } from './outbound/salesOrder/order-detail/order-detail';
+import { PicklistList } from './outbound/release/picklist-list/picklist-list';
+import { PicklistDetail } from './outbound/release/picklist-detail/picklist-detail';
+import { PicklistPage } from './outbound/release/picklistpage/picklistpage';
 
 export const routes: Routes = [
   { path: 'login', component: Login },
@@ -58,6 +61,11 @@ export const routes: Routes = [
       { path: 'orders', component: OrderList },
       { path: 'orders/new', component: OrderForm },
       { path: 'orders/:id', component: OrderDetail },
+
+      {
+        path: 'picklists', component: PicklistPage,
+        children: [{ path: ':id', component: PicklistDetail }],
+      },
     ],
   },
   { path: '404', component: NotFound },

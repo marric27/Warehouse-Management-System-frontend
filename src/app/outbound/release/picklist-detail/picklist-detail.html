@@ -1,0 +1,29 @@
+<div class="picklist-detail">
+  @if (picklist$ | async; as p) {
+  <h2>Picklist Detail</h2>
+  <h2>{{ p.code }}</h2>
+  <p>{{ p.customerCode }}</p>
+  <ul>
+    @for (item of p.pickListItemList; track item.id) {
+    <li class="item">
+      <div class="code">{{ item.code }}</div>
+
+      <div class="info">
+        <div class="name">{{ item.code }}</div>
+        <div class="name">{{ item.quantity }}</div>
+        <div class="name">{{ item.state }}</div>
+        <div class="name">{{ item.productCode }}</div>
+        <div class="name">{{ item.pickedQty }}</div>
+        <div class="name">{{ item.pickingSequence }}</div>
+        <div class="name">{{ item.errorReason }}</div>
+        <div class="name">{{ item.slotCode }}</div>
+        <div class="name">{{ item.salesOrderCode }}</div>
+        <div class="name">{{ item.salesOrderLineNumber }}</div>
+      </div>
+
+      <div class="arrow">▶</div>
+    </li>
+    }
+  </ul>
+  }
+</div>
