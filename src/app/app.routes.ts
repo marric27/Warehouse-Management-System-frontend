@@ -27,6 +27,7 @@ import { PicklistDetail } from './outbound/release/picklist-detail/picklist-deta
 import { PicklistPage } from './outbound/release/picklistpage/picklistpage';
 import { PicklistForm } from './outbound/release/picklist-form/picklist-form';
 import { NextItem } from './picking/next-item/next-item';
+import { Confirm } from './picking/confirm/confirm';
 
 export const routes: Routes = [
   { path: 'login', component: Login },
@@ -72,6 +73,7 @@ export const routes: Routes = [
       { path: 'picklist/new', component: PicklistForm },
 
       { path: 'picking/next-item', component: NextItem },
+      { path: 'picking/confirm', component: Confirm },
 
     ],
   },
