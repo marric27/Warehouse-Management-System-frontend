@@ -6,7 +6,7 @@
     <mat-select formControlName="stockUnit" required>
       @for (stockUnit of stockUnits; track $index) {
       <mat-option [value]="stockUnit">
-        {{ stockUnit.id }}
+        {{ stockUnit.code }}
       </mat-option>
       }
     </mat-select>

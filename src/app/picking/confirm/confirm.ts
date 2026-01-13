@@ -7,7 +7,6 @@ import {
   FormsModule,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { PickingService } from '../service/picking.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmRequest } from '../models/confirmRequest.model';
@@ -45,7 +44,7 @@ export class Confirm {
       this.picklists = picklists;
     });
     this.stockUnitService.getAllStockunits().subscribe((stockUnits) => {
-      this.stockUnits = stockUnits.filter((su) => !su.slotId); // prendo su non ancora allocati
+      this.stockUnits = stockUnits;
     });
     this.form = this.fb.group({
       pickListCode: new FormControl(this.request.pickListCode),
@@ -68,7 +67,9 @@ export class Confirm {
   onPickListSelected(code: string) {
     const selectedPickList = this.picklists.find((p) => p.code === code);
 
-    this.picklistItems = selectedPickList?.pickListItemList ?? [];
+    this.picklistItems = (selectedPickList?.pickListItemList ?? []).filter(
+      (item) => item.state === 'OPEN'
+    );
 
     const itemControl = this.form.get('pickListItemCode');
 

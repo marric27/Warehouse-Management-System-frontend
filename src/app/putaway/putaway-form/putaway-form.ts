@@ -9,6 +9,7 @@ import { SlotService } from '../../warehouse/services/slot.service';
 import { StockUnit } from '../../goodsin/models/stockunit.model';
 import { Slot } from '../../warehouse/slot-list/slot.model';
 import { StockUnitService } from '../../goodsin/services/stockunit-service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-putaway-form',
@@ -21,13 +22,20 @@ export class PutawayForm {
   stockUnits: StockUnit[] = [];
   slots: Slot[] = [];
 
-  constructor(private putawayService: PutawayService, private stockUnitService: StockUnitService, private slotService: SlotService, private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private putawayService: PutawayService,
+    private snackBar: MatSnackBar,
+    private stockUnitService: StockUnitService,
+    private slotService: SlotService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.stockUnitService.getAllStockunits().subscribe(stockUnits => {
-      this.stockUnits = stockUnits.filter(su => !su.slotId); // prendo su non ancora allocati
+    this.stockUnitService.getAllStockunits().subscribe((stockUnits) => {
+      this.stockUnits = stockUnits.filter((su) => !su.slotId); // prendo su non ancora allocati
     });
-    this.slotService.getAllSlots().subscribe(slots => {
+    this.slotService.getAllSlots().subscribe((slots) => {
       this.slots = slots;
     });
     this.putawayForm = new FormGroup({
@@ -39,8 +47,13 @@ export class PutawayForm {
   save() {
     this.putawayService
       .allocateStockUnit(this.putawayForm.value.stockUnit.id, this.putawayForm.value.slot.id)
-      .subscribe(() => {
-        this.router.navigate(['/homepage']);
+      .subscribe({
+        next: () => {
+          this.stockUnits = this.stockUnits.filter(su => su.id !== this.putawayForm.value.stockUnit.id);
+          this.snackBar.open('Picking confermata con successo', 'OK', { duration: 3000 });
+          this.putawayForm.reset();
+        },
+        error: (err) => console.error(err),
       });
   }
 }

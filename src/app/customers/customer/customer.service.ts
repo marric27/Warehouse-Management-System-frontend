@@ -17,6 +17,9 @@ export class CustomerService {
       },
     });
   }
+  getAll() {
+    return this.http.get<Customer[]>(`${this.baseUrl}/all`);
+  }
 
   createCustomer(customer: Customer) {
     return this.http.post<Customer>(this.baseUrl, customer);
