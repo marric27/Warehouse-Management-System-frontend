@@ -58,7 +58,7 @@
 
     <div class="actions">
       <button matButton="filled" class="btn-secondary" (click)="goBack()">Indietro</button>
-      <button matButton="filled" [disabled]="item.state === 'CHECKED' || item.state === 'PUTAWAY'" (click)="createStockUnit(item.id)">Crea Stock Unit</button>
+      <button matButton="filled" [disabled]="item.state === 'CHECKED' || item.state === 'PUTAWAY'" (click)="createStockUnit(item.code)">Crea Stock Unit</button>
     </div>
 
   </div>

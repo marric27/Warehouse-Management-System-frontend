@@ -33,6 +33,10 @@ export class OrderService {
     return this.http.get<Order>(`${this.baseUrl}/orders/${id}`);
   }
 
+  getOrderByCode(code: string): Observable<Order> {
+    return this.http.get<Order>(`${this.baseUrl}/orders/code/${code}`);
+  }
+
   deleteOrder(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }

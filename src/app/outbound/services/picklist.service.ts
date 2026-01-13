@@ -25,6 +25,10 @@ export class PicklistService {
     return this.http.get<Picklist>(`${this.baseUrl}/${id}`);
   }
 
+  getPicklistByCode(code: string): Observable<Picklist> {
+    return this.http.get<Picklist>(`${this.baseUrl}/code/${code}`);
+  }
+
   createPicklists(ids: number[]): Observable<Picklist[]> {
     return this.http.post<Picklist[]>(`${this.baseUrl}/release`, ids);
 

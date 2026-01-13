@@ -18,7 +18,7 @@ export class ItemForm {
   item: any = {};
   grn: Grn = {} as Grn;
   isEdit = false;
-  grnId!: number;
+  grnCode!: string;
 
   constructor(
     private service: GrnItemService,
@@ -35,13 +35,13 @@ export class ItemForm {
       compliantQty: new FormControl(this.item?.compliantQty || 0),
       notCompliantQty: new FormControl(this.item?.notCompliantQty || 0),
     });
-    this.grnId = Number(this.route.snapshot.paramMap.get('id'));
+    this.grnCode = this.route.snapshot.paramMap.get('grnCode')!;
   }
 
   save() {
-    const request$ = this.service.createItem(this.grnId, this.itemForm.value);
+    const request$ = this.service.createItem(this.grnCode, this.itemForm.value);
     request$.subscribe(() => {
-      this.router.navigate(['/grns', this.grnId]);
+      this.router.navigate(['/grns', this.grnCode]);
     });
   }
 }

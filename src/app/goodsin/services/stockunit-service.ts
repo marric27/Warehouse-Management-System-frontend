@@ -11,8 +11,8 @@ export class StockUnitService {
 
   constructor(private http: HttpClient) { }
 
-  createStockunit(itemId: number, data: StockUnit): Observable<StockUnit> {
-    return this.http.post<StockUnit>(`${this.baseUrl}/${itemId}/checking-info`, data);
+  createStockunit(itemCode: string, data: StockUnit): Observable<StockUnit> {
+    return this.http.post<StockUnit>(`${this.baseUrl}/${itemCode}/checking-info`, data);
   }
 
   getAllStockunits(): Observable<StockUnit[]> {

@@ -38,8 +38,8 @@ export class ProductListComponent implements OnInit {
     this.loadProducts();
   }
 
-  goToProductDetail(id: number) {
-    this.router.navigate(['/products', id]);
+  goToProductDetail(code: string) {
+    this.router.navigate(['/products', code]);
   }
 
   goToNewProduct() {

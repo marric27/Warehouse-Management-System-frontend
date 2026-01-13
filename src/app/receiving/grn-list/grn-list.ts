@@ -35,8 +35,8 @@ export class GrnList {
     this.loadGrns();
   }
 
-  goToGrnDetail(id: number) {
-    this.router.navigate(['/grns', id]);
+  goToGrnDetail(code: string) {
+    this.router.navigate(['/grns', code]);
   }
 
   goToNewGrn() {

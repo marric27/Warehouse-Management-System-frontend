@@ -16,8 +16,8 @@ import { StockUnitService } from '../services/stockunit-service';
 export class StockunitForm {
   suForm!: FormGroup;
   categories = Object.values(SlotCategory);
-  grnId!: number;
-  itemId!: number;
+  grnCode!: string;
+  itemCode!: string;
 
   constructor(
     private stockUnitService: StockUnitService,
@@ -31,14 +31,14 @@ export class StockunitForm {
       expirationDate: new FormControl(''),
       quantity: new FormControl(0),
     });
-    this.grnId = Number(this.route.snapshot.paramMap.get('grnId'));
-    this.itemId = Number(this.route.snapshot.paramMap.get('itemId'));
+    this.grnCode = this.route.snapshot.paramMap.get('grnCode')!;
+    this.itemCode = this.route.snapshot.paramMap.get('itemCode')!;
   }
 
   save() {
-    const request$ = this.stockUnitService.createStockunit(this.itemId, this.suForm.value);
+    const request$ = this.stockUnitService.createStockunit(this.itemCode, this.suForm.value);
     request$.subscribe(() => {
-      this.router.navigate([`/grns/${this.grnId}/items/${this.itemId}`]);
+      this.router.navigate([`/grns/${this.grnCode}/items/${this.itemCode}`]);
     });
   }
 }

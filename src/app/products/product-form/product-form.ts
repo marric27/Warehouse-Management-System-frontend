@@ -30,11 +30,11 @@ export class ProductForm {
       name: new FormControl(this.product?.name || '', Validators.required),
       category: new FormControl(this.product?.category || '', Validators.required),
     });
-    const id = this.route.snapshot.paramMap.get('id');
+    const code = this.route.snapshot.paramMap.get('code');
 
-    if (id) {
+    if (code) {
       this.isEdit = true;
-      this.service.getProductById(+id).subscribe((p) => {
+      this.service.getProductByCode(code).subscribe((p) => {
         this.product = p;
         this.productForm.patchValue({
           name: p.name,

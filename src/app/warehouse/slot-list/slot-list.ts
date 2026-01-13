@@ -36,8 +36,8 @@ export class SlotList implements OnInit {
     this.loadSlots();
   }
 
-  goToSlotDetail(id: number) {
-    this.router.navigate(['/slots', id]);
+  goToSlotDetail(code: string) {
+    this.router.navigate(['/slots', code]);
   }
 
   goToNewSlot() {

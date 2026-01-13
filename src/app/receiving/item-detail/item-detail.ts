@@ -14,27 +14,27 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class ItemDetail {
   grnItem$?: Observable<GrnItem>;
-  grnItemId!: number;
-  grnId!: number;
+  grnItemCode!: string;
+  grnCode!: string;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: GrnItemService) {}
 
   ngOnInit(): void {
-    this.grnItemId = Number(this.route.snapshot.paramMap.get('itemId'));
-    this.grnId = Number(this.route.snapshot.paramMap.get('grnId'));
-    this.loadGrnItem(this.grnItemId);
+    this.grnItemCode = this.route.snapshot.paramMap.get('itemCode')!;
+    this.grnCode = this.route.snapshot.paramMap.get('grnCode')!;
+    this.loadGrnItem(this.grnItemCode);
   }
 
-  loadGrnItem(id: number): void {
-    this.grnItem$ = this.service.getGrnItemById(id);
+  loadGrnItem(code: string): void {
+    this.grnItem$ = this.service.getGrnItemByCode(code);
   }
 
   goBack(): void {
-    this.router.navigate(['/grns/', this.grnId]);
+    this.router.navigate(['/grns/', this.grnCode]);
   }
 
-  createStockUnit(id: number): void {
-    this.router.navigate(['/create-stock-unit/', this.grnId, this.grnItemId]);
+  createStockUnit(grnItemCode: string): void {
+    this.router.navigate(['/create-stock-unit/', this.grnCode, this.grnItemCode]);
   }
 
 }

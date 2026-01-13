@@ -14,27 +14,21 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class GrnDetail implements OnInit {
   grn$?: Observable<Grn>;
-  grnId!: number;
+  grnCode!: string;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: GrnService) {}
 
   ngOnInit(): void {
-    this.grnId = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadGrn(this.grnId);
+    this.grnCode = this.route.snapshot.paramMap.get('code')!;
+    this.loadGrn(this.grnCode);
   }
 
-  loadGrn(id: number): void {
-    this.grn$ = this.service.getGrnById(id);
+  loadGrn(code: string): void {
+    this.grn$ = this.service.getGrnByCode(code);
   }
 
   edit(id: number): void {
     this.router.navigate(['/grns', id, 'edit']);
-  }
-
-  delete(id: number): void {
-    if (confirm('Vuoi eliminare questo GRN?')) {
-      this.service.deleteGrn(id).subscribe(() => this.router.navigate(['/grns']));
-    }
   }
 
   goBack(): void {
@@ -42,10 +36,10 @@ export class GrnDetail implements OnInit {
   }
 
   addItem(): void {
-    this.router.navigate(['/add-grn-item', this.grnId]);
+    this.router.navigate(['/add-grn-item', this.grnCode]);
   }
 
-  viewItemDetail(itemId: number) {
-    this.router.navigate(['/grns', this.grnId, 'items', itemId]);
+  viewItemDetail(itemCode: string) {
+    this.router.navigate(['/grns', this.grnCode, 'items', itemCode]);
   }
 }

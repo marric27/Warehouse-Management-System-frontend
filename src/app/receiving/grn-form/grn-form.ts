@@ -25,11 +25,11 @@ export class GrnForm {
       receivingDate: new FormControl(this.grn?.receivingDate || Date.now()),
       supplier: new FormControl(this.grn?.supplier || ''),
     });
-    const id = this.route.snapshot.paramMap.get('id');
+    const code = this.route.snapshot.paramMap.get('code');
 
-    if (id) {
+    if (code) {
       this.isEdit = true;
-      this.service.getGrnById(+id).subscribe((g) => {
+      this.service.getGrnByCode(code).subscribe((g) => {
         this.grn = g;
         this.grnForm.patchValue({
           receivingDate: g.receivingDate,

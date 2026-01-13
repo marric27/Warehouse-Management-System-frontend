@@ -40,35 +40,35 @@ export const routes: Routes = [
 
       { path: 'customers', component: CustomerListComponent },
       { path: 'customers/new', component: CustomerForm },
-      { path: 'customers/:id', component: CustomerDetail },
+      { path: 'customers/:code', component: CustomerDetail },
 
       { path: 'slots', component: SlotList },
       { path: 'slots/new', component: SlotForm },
-      { path: 'slots/:id', component: SlotDetail },
+      { path: 'slots/:code', component: SlotDetail },
 
       { path: 'products', component: ProductListComponent },
       { path: 'products/new', component: ProductForm },
-      { path: 'products/:id', component: ProductDetail },
+      { path: 'products/:code', component: ProductDetail },
 
       { path: 'grns', component: GrnList },
       { path: 'grns/new', component: GrnForm },
-      { path: 'grns/:id', component: GrnDetail },
+      { path: 'grns/:code', component: GrnDetail },
 
-      { path: 'add-grn-item/:id', component: ItemForm },
-      { path: 'grns/:grnId/items/:itemId', component: ItemDetail },
+      { path: 'add-grn-item/:grnCode', component: ItemForm },
+      { path: 'grns/:grnCode/items/:itemCode', component: ItemDetail },
 
-      { path: 'create-stock-unit/:grnId/:itemId', component: StockunitForm },
+      { path: 'create-stock-unit/:grnCode/:itemCode', component: StockunitForm },
 
       { path: 'putaway', component: PutawayForm },
 
       { path: 'orders', component: OrderList },
       { path: 'orders/new', component: OrderForm },
-      { path: 'orders/:id', component: OrderDetail },
+      { path: 'orders/:code', component: OrderDetail },
 
       {
         path: 'picklists', component: PicklistPage,
         children: [
-          { path: ':id', component: PicklistDetail }],
+          { path: ':code', component: PicklistDetail }],
       },
       { path: 'picklist/new', component: PicklistForm },
 

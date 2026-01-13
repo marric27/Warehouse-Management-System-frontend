@@ -24,6 +24,10 @@ export class GrnService {
     getGrnById(id: number): Observable<Grn> {
         return this.http.get<Grn>(`${this.baseUrl}/${id}`);
     }
+    
+    getGrnByCode(code: string): Observable<Grn> {
+      return this.http.get<Grn>(`${this.baseUrl}/code/${code}`);
+    }
 
     createGrn(data: Grn): Observable<Grn> {
         return this.http.post<Grn>(this.baseUrl, data);
@@ -33,7 +37,4 @@ export class GrnService {
         return this.http.put<Grn>(`${this.baseUrl}/${id}`, data);
     }
 
-    deleteGrn(id: number): Observable<void> {
-        return this.http.delete<void>(`${this.baseUrl}/${id}`);
-    }
 }

@@ -24,8 +24,8 @@ export class CustomerService {
   updateCustomer(id: number | undefined, customer: Customer) {
     return this.http.put<Customer>(`${this.baseUrl}/${id}`, customer);
   }
-  getCustomer(id: number) {
-    return this.http.get<Customer>(`${this.baseUrl}/${id}`);
+  getCustomer(code: string) {
+    return this.http.get<Customer>(`${this.baseUrl}/code/${code}`);
   }
   deleteCustomer(id: number | undefined) {
     return this.http.delete(`${this.baseUrl}/${id}`);

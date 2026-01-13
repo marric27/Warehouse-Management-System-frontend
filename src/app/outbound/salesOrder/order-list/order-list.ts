@@ -36,8 +36,8 @@ export class OrderList {
     this.loadOrders();
   }
 
-  goToOrderDetail(id: number) {
-    this.router.navigate(['/orders', id]);
+  goToOrderDetail(code: string) {
+    this.router.navigate(['/orders', code]);
   }
 
   newOrder() {

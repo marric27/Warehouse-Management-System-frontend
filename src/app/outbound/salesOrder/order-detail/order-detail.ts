@@ -14,7 +14,7 @@ import { Order } from '../../models/order.model';
 })
 export class OrderDetail {
   order$?: Observable<Order>;
-  orderId!: number;
+  orderCode!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,16 +23,16 @@ export class OrderDetail {
   ) {}
 
   ngOnInit(): void {
-    this.orderId = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadLine(this.orderId);
+    this.orderCode = this.route.snapshot.paramMap.get('code')!;
+    this.loadLine(this.orderCode);
   }
 
-  loadLine(id: number): void {
-    this.order$ = this.service.getOrderById(id);
+  loadLine(code: string): void {
+    this.order$ = this.service.getOrderByCode(code);
   }
 
   viewLineDetail(id: number) {
-    this.router.navigate(['/orders', this.orderId]);
+    this.router.navigate(['/orders', this.orderCode]);
   }
 
   goBack(): void {

@@ -22,12 +22,12 @@ export class CustomerDetail {
   ) {}
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadCustomer(id);
+    const code = this.route.snapshot.paramMap.get('code');
+    this.loadCustomer(code!);
   }
 
-  loadCustomer(id: number) {
-    this.customer$ = this.service.getCustomer(id);
+  loadCustomer(code: string) {
+    this.customer$ = this.service.getCustomer(code);
   }
 
   edit(id: number) {

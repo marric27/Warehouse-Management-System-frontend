@@ -18,12 +18,12 @@ slot$?: Observable<Slot>;
   constructor(private route: ActivatedRoute, private router: Router, private service: SlotService) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadSlot(id);
+    const code = this.route.snapshot.paramMap.get('code');
+    this.loadSlot(code!);
   }
 
-  loadSlot(id: number): void {
-    this.slot$ = this.service.getSlotById(id);
+  loadSlot(code: string): void {
+    this.slot$ = this.service.getSlotByCode(code);
   }
 
   edit(id: number): void {

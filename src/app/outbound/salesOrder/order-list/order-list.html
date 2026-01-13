@@ -13,7 +13,7 @@
         }
         @else {
           @for (o of page.content; track o.id) {
-            <li class="item" (click)="goToOrderDetail(o.id!)">
+            <li class="item" (click)="goToOrderDetail(o.code!)">
               <div class="code">{{ o.code }}</div>
 
               <div class="info">

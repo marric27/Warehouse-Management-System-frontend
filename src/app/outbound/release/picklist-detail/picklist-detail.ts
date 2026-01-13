@@ -16,7 +16,7 @@ export class PicklistDetail {
 
   picklist$ = this.route.paramMap.pipe(
     switchMap(params =>
-      this.service.getPicklistById(+params.get('id')!)
+      this.service.getPicklistByCode(params.get('code')!)
     )
   );
 }

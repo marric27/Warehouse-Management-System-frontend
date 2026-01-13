@@ -13,7 +13,7 @@
         </li>
       } @else {
         @for (pl of page.content; track pl.id) {
-          <li class="item" [routerLink]="[pl.id]">
+          <li class="item" [routerLink]="[pl.code]">
             <div class="code">{{ pl.code }}</div>
 
             <div class="info">
