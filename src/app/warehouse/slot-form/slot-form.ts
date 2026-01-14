@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Slot } from '../slot-list/slot.model';
+import { Slot } from '../models/slot.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SlotService } from '../services/slot.service';

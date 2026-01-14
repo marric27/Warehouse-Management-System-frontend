@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { Slot } from '../slot-list/slot.model';
+import { Slot } from '../models/slot.model';
 import { SlotService } from '../services/slot.service';
 import {MatButtonModule} from '@angular/material/button';
 

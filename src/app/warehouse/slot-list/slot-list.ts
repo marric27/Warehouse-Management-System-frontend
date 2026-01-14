@@ -4,7 +4,7 @@ import { AsyncPipe } from '@angular/common';
 import { Page } from '../../common/page.model';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { SlotService } from '../services/slot.service';
-import { Slot } from './slot.model';
+import { Slot } from '../models/slot.model';
 import { Router } from '@angular/router';
 
 @Component({

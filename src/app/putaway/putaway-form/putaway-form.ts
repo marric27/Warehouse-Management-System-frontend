@@ -7,7 +7,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { PutawayService } from '../services/putaway.service';
 import { SlotService } from '../../warehouse/services/slot.service';
 import { StockUnit } from '../../goodsin/models/stockunit.model';
-import { Slot } from '../../warehouse/slot-list/slot.model';
+import { Slot } from '../../warehouse/models/slot.model';
 import { StockUnitService } from '../../goodsin/services/stockunit-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -26,10 +26,7 @@ export class PutawayForm {
     private putawayService: PutawayService,
     private snackBar: MatSnackBar,
     private stockUnitService: StockUnitService,
-    private slotService: SlotService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
+    private slotService: SlotService  ) {}
 
   ngOnInit() {
     this.stockUnitService.getAllStockunits().subscribe((stockUnits) => {
@@ -50,7 +47,7 @@ export class PutawayForm {
       .subscribe({
         next: () => {
           this.stockUnits = this.stockUnits.filter(su => su.id !== this.putawayForm.value.stockUnit.id);
-          this.snackBar.open('Picking confermata con successo', 'OK', { duration: 3000 });
+          this.snackBar.open('Putaway avvenuta con successo', 'OK', { duration: 3000 });
           this.putawayForm.reset();
         },
         error: (err) => console.error(err),

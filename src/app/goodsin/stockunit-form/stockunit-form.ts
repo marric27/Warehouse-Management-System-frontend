@@ -6,6 +6,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SlotCategory } from '../../common/slotCategory.enum';
 import { StockUnitService } from '../services/stockunit-service';
+import { DateUtils } from '../../common/date.util';
 
 @Component({
   selector: 'app-stockunit-form',
@@ -28,8 +29,8 @@ export class StockunitForm {
   ngOnInit() {
     this.suForm = new FormGroup({
       batchNumber: new FormControl(''),
-      expirationDate: new FormControl(''),
-      quantity: new FormControl(0),
+      expirationDate: new FormControl(DateUtils.today()),
+      quantity: new FormControl()
     });
     this.grnCode = this.route.snapshot.paramMap.get('grnCode')!;
     this.itemCode = this.route.snapshot.paramMap.get('itemCode')!;
