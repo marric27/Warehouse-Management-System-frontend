@@ -15,8 +15,8 @@ export class GrnService {
     getGrnList(page: number, size: number): Observable<Page<Grn>> {
         return this.http.get<Page<Grn>>(this.baseUrl, {
             params: {
-                page,
-                size,
+                PageNumber: page,
+                PageSize: size,
             },
         });
     }

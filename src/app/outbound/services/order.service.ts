@@ -12,8 +12,8 @@ export class OrderService {
 
   constructor(private http: HttpClient) {}
 
-  createOrder(order: Order, customerId: number) {
-    return this.http.post<Order>(`${this.baseUrl}/create-order/${customerId}`, order);
+  createOrder(order: Order) {
+    return this.http.post<Order>(`${this.baseUrl}/create-order`, order);
   }
 
   getOrders() {
@@ -23,8 +23,8 @@ export class OrderService {
   getOrdersPaged(page: number, size: number) {
     return this.http.get<Page<Order>>(`${this.baseUrl}/orders-paged`, {
       params: {
-        page,
-        size,
+        PageNumber: page,
+        PageSize: size,
       },
     });
   }

@@ -1,4 +1,4 @@
-import { SlotCategory } from "../../common/slotCategory.enum";
+import { Category } from "../../common/category.enum";
 
 export interface StockUnit {
     id: number;
@@ -7,6 +7,6 @@ export interface StockUnit {
     expirationDate: Date;
     productCode: string;
     quantity: number;
-    category: SlotCategory;
+    category: Category;
     slotId?: number;
 }

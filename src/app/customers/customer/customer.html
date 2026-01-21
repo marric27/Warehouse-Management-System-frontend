@@ -13,8 +13,8 @@
         }
         @else {
           @for (c of page.content; track c.id) {
-            <li class="customer-item" (click)="goToCustomerDetail(c.customerCode!)">
-              <div class="code">{{ c.customerCode }}</div>
+            <li class="customer-item" (click)="goToCustomerDetail(c.code!)">
+              <div class="code">{{ c.code }}</div>
 
               <div class="info">
                 <div class="name">{{ c.name }} {{ c.surname }}</div>

@@ -1,5 +1,5 @@
 export interface SalesOrderLine {
-  id?: number
+  id: number
   productCode: string;
   quantity: number;
 }

@@ -12,8 +12,8 @@ export class CustomerService {
   getPaged(page: number, size: number) {
     return this.http.get<Page<Customer>>(this.baseUrl, {
       params: {
-        page,
-        size,
+        PageNumber: page,
+        PageSize: size,
       },
     });
   }

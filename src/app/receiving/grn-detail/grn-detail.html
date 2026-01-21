@@ -27,7 +27,7 @@
           </li>
         }
         @else {
-        @for (item of grn.items; track item.id) {
+        @for (item of grn.items; track item.code) {
         <li class="grn-item" (click)="viewItemDetail(item.code)">
           <div class="info">
             <div class="code">Code: {{ item.code }}</div>

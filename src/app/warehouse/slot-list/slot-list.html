@@ -12,7 +12,7 @@
           </li>
         }
         @else {
-          @for (s of page.content; track s.id) {
+          @for (s of page.content; track s.code) {
             <li class="slot-item" (click)="goToSlotDetail(s.code!)">
               <div class="code">{{ s.code }}</div>
 

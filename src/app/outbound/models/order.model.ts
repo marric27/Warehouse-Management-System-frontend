@@ -5,5 +5,6 @@ export interface Order {
   code?: string;
   date?: string; // "YYYY-MM-DD"
   state?: string;
+  customerCode?: string;
   salesOrderLineList: SalesOrderLine[];
 }

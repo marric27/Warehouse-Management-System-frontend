@@ -45,7 +45,7 @@ export class OrderForm {
         this.customers = customers;
     })
     this.orderForm = this.fb.group({
-      customer: new FormControl(null, Validators.required),
+      customerCode: new FormControl(null, Validators.required),
       salesOrderLineList: this.fb.array([]),
     });
     this.addLine();
@@ -69,7 +69,7 @@ export class OrderForm {
   }
 
   submit() {
-    this.orderService.createOrder(this.orderForm.value, this.orderForm.value.customer).subscribe({
+    this.orderService.createOrder(this.orderForm.value).subscribe({
       next: (response) => {
         console.log('Order created successfully:', response);
         this.orderForm.reset();

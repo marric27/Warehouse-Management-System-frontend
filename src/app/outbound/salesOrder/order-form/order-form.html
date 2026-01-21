@@ -3,9 +3,9 @@
 <form [formGroup]="orderForm" (ngSubmit)="submit()">
   <mat-form-field appearance="fill">
     <mat-label>Customer</mat-label>
-    <mat-select formControlName="customer" required>
-          @for (c of customers; track c.id) {
-          <mat-option [value]="c.id">
+    <mat-select formControlName="customerCode" required>
+          @for (c of customers; track c.code) {
+          <mat-option [value]="c.code">
             {{ c.name }} {{ c.surname }}
           </mat-option>
           }
@@ -18,7 +18,7 @@
       <mat-form-field>
         <mat-label>Product</mat-label>
         <mat-select formControlName="productCode" required>
-          @for (p of products; track p.id) {
+          @for (p of products; track p.code) {
           <mat-option [value]="p.code">
             {{ p.name }}
           </mat-option>

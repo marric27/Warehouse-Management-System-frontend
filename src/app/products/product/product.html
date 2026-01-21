@@ -12,7 +12,7 @@
           </li>
         }
         @else {
-          @for (p of page.content; track p.id) {
+          @for (p of page.content; track p.code) {
             <li class="product-item" (click)="goToProductDetail(p.code!)">
               <div class="code">{{ p.code }}</div>
 

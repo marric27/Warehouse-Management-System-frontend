@@ -4,7 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SlotCategory } from '../../common/slotCategory.enum';
+import { Category } from '../../common/category.enum';
 import { StockUnitService } from '../services/stockunit-service';
 import { DateUtils } from '../../common/date.util';
 
@@ -16,7 +16,7 @@ import { DateUtils } from '../../common/date.util';
 })
 export class StockunitForm {
   suForm!: FormGroup;
-  categories = Object.values(SlotCategory);
+  categories = Object.values(Category);
   grnCode!: string;
   itemCode!: string;
 

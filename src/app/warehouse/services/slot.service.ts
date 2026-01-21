@@ -14,8 +14,8 @@ export class SlotService {
   getSlots(page: number, size: number): Observable<Page<Slot>> {
     return this.http.get<Page<Slot>>(this.baseUrl, {
       params: {
-        page,
-        size,
+        PageNumber: page,
+        PageSize: size,
       },
     });
   }
