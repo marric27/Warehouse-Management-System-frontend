@@ -11,6 +11,6 @@ export class PutawayService {
   constructor(private http: HttpClient) {}
 
   allocateStockUnit(stockUnitId: string, slotId: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/${stockUnitId}/assignToSlot/${slotId}`, null);
+    return this.http.post(`${this.baseUrl}/${stockUnitId}/assignToSlot/${slotId}`, null);//TODO cambio in code
   }
 }

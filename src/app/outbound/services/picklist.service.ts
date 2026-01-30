@@ -15,8 +15,8 @@ export class PicklistService {
   getPicklists(page: number, size: number): Observable<Page<Picklist>> {
     return this.http.get<Page<Picklist>>(`${this.baseUrl}/release-paged`, {
       params: {
-        page,
-        size,
+        PageNumber: page,
+        PageSize: size,
       },
     });
   }

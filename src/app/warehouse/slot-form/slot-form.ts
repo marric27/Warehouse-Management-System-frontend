@@ -42,7 +42,7 @@ export class SlotForm {
         this.slot = s;
         this.slotForm.patchValue({
           pickingSequence: s.pickingSequence,
-          allowedCategory: s.allowedCategory,
+          allowedCategory: s.category,
           capacity: s.capacity
         });
       });

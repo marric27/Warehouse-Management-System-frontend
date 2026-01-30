@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { PicklistService } from '../../services/picklist.service';
-import { switchMap } from 'rxjs';
+import { switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-picklist-detail',
@@ -17,6 +17,6 @@ export class PicklistDetail {
   picklist$ = this.route.paramMap.pipe(
     switchMap(params =>
       this.service.getPicklistByCode(params.get('code')!)
-    )
+    ), tap(picklist => console.log('Picklist:', picklist))
   );
 }

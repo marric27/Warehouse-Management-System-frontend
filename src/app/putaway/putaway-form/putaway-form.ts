@@ -43,7 +43,7 @@ export class PutawayForm {
 
   save() {
     this.putawayService
-      .allocateStockUnit(this.putawayForm.value.stockUnit.id, this.putawayForm.value.slot.id)
+      .allocateStockUnit(this.putawayForm.value.stockUnit.code, this.putawayForm.value.slot.code)
       .subscribe({
         next: () => {
           this.stockUnits = this.stockUnits.filter(su => su.id !== this.putawayForm.value.stockUnit.id);

@@ -5,12 +5,12 @@
     <p>Customer: {{ p.customerCode }}</p>
 
     <ul>
-      @for (item of p.pickListItemList; track item.id) {
+      @for (item of p.pickListItemList; track item.code) {
         <li class="item">
           <div class="code">{{ item.code }}</div>
 
           <div class="info">
-            <div class="name">Quantity: {{ item.quantity }}</div>
+            <div class="name">Quantity: {{ item.qty }}</div>
             <div class="name">State: {{ item.state }}</div>
             <div class="name">Product: {{ item.productCode }}</div>
             <div class="name">Picked Qty: {{ item.pickedQty }}</div>

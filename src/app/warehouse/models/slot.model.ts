@@ -6,7 +6,7 @@ export interface Slot {
   id?: number;
   code?: string;
   pickingSequence: number;
-  allowedCategory: Category;
+  category: Category;
   capacity: number;
   product?: Product;
   stockUnits?: StockUnit[];

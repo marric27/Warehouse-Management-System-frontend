@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Product } from '../product/product.model';
 import { ProductService } from '../services/product.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Category } from '../../common/category.enum';
 
 @Component({
   selector: 'app-product-form',
@@ -18,6 +19,7 @@ export class ProductForm {
   productForm!: FormGroup;
   product: Product = {} as Product;
   isEdit = false;
+  categories = Object.values(Category);
 
   constructor(
     private route: ActivatedRoute,

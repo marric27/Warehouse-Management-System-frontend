@@ -12,7 +12,7 @@
           <p>Nessuna picklist</p>
         </li>
       } @else {
-        @for (pl of page.content; track pl.id) {
+        @for (pl of page.content; track pl.code) {
           <li class="item" [routerLink]="[pl.code]">
             <div class="code">{{ pl.code }}</div>
 

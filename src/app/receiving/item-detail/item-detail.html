@@ -42,7 +42,7 @@
           <li class="empty-state">No checking info available</li>
         }
         @else {
-          @for (check of item.checkingInfoList; track check.id) {
+          @for (check of item.checkingInfoList; track check.code) {
             <li class="checking-info">
               <div><strong>Code:</strong> {{ check.code }}</div>
               <div><strong>Batch Number</strong> {{ check.batchNumber }}</div>

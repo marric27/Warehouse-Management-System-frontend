@@ -3,7 +3,7 @@ export interface PickListItem {
     code?: string;
     productCode?: string;
     state?: string;
-    quantity?: number;
+    qty?: number;
     pickedQty?: number;
     pickingSequence?: number;
     errorReason?: string;
