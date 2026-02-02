@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/warehouse-management-system
+  IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/warehouse-management-system-frontend
 
 jobs:
   docker:
@@ -32,5 +32,5 @@ jobs:
           context: .
           push: true
           tags: |
-            Warehouse-Management-System-frontend:develop
-            Warehouse-Management-System-frontend:${{ github.sha }}
+            warehouse-management-system-frontend:develop
+            warehouse-management-system-frontend:${{ github.sha }}
