@@ -18,8 +18,8 @@ import { NotFound } from './common/error/not-found/not-found';
 import { ItemDetail } from './receiving/item-detail/item-detail';
 import { PutawayForm } from './putaway/putaway-form/putaway-form';
 import { OrderForm } from './outbound/salesOrder/order-form/order-form';
-import { Login } from './login/login';
-import { authenticationGuard } from './authentication-guard';
+// import { Login } from './login/login';
+// import { authenticationGuard } from './authentication-guard';
 import { OrderList } from './outbound/salesOrder/order-list/order-list';
 import { OrderDetail } from './outbound/salesOrder/order-detail/order-detail';
 import { PicklistList } from './outbound/release/picklist-list/picklist-list';
@@ -30,11 +30,11 @@ import { NextItem } from './picking/next-item/next-item';
 import { Confirm } from './picking/confirm/confirm';
 
 export const routes: Routes = [
-  { path: 'login', component: Login },
-  {
-    path: '',
-    canActivate: [authenticationGuard],
-    children: [
+  // { path: 'login', component: Login },
+  // {
+  //   path: '',
+  //   canActivate: [authenticationGuard],
+  //   children: [
       { path: '', redirectTo: '/homepage', pathMatch: 'full' },
       { path: 'homepage', component: Home },
 
@@ -75,8 +75,8 @@ export const routes: Routes = [
       { path: 'picking/next-item', component: NextItem },
       { path: 'picking/confirm', component: Confirm },
 
-    ],
-  },
+  //   ],
+  // },
   { path: '404', component: NotFound },
   { path: '**', redirectTo: '/404' },
 ];

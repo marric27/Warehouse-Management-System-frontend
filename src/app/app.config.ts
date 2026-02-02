@@ -5,14 +5,14 @@ import { routes } from './app.routes';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { errorInterceptor } from './common/error/error.interceptor';
-import { requestInterceptor } from './request-interceptor';
+// import { requestInterceptor } from './request-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideHttpClient(
-      withInterceptors([errorInterceptor, requestInterceptor])
+      withInterceptors([errorInterceptor/*, requestInterceptor*/])
     ),
     MatSnackBarModule
   ]

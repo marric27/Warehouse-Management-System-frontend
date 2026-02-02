@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - login_off
 
 env:
   REGISTRY: docker.io
