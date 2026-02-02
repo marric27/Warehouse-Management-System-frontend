@@ -38,8 +38,8 @@ export class CustomerListComponent implements OnInit {
     this.loadCustomers();
   }
 
-  goToCustomerDetail(id: number) {
-    this.router.navigate(['/customers', id]);
+  goToCustomerDetail(code: string) {
+    this.router.navigate(['/customers', code]);
   }
 
   goToNewCustomer() {

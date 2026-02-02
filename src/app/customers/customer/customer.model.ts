@@ -6,5 +6,5 @@ export interface Customer {
   billingAddress: string;
   email: string;
   taxCode: string;
-  customerCode?: string;
+  code?: string;
 }

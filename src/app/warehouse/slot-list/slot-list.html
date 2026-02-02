@@ -12,12 +12,12 @@
           </li>
         }
         @else {
-          @for (s of page.content; track s.id) {
-            <li class="slot-item" (click)="goToSlotDetail(s.id!)">
+          @for (s of page.content; track s.code) {
+            <li class="slot-item" (click)="goToSlotDetail(s.code!)">
               <div class="code">{{ s.code }}</div>
 
               <div class="info">
-                <div class="category">Categoria: {{ s.allowedCategory }}</div>
+                <div class="category">Categoria: {{ s.category }}</div>
                 <div class="capacity">Capacità: {{ s.capacity }}</div>
                 <div class="picking-sequence">Sequenza di prelievo: {{ s.pickingSequence }}</div>
               </div>

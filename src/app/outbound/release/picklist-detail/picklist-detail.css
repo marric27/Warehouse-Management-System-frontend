@@ -1,0 +1,63 @@
+.picklist-detail {
+  display: block;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+.picklist-detail h2 {
+  margin: 8px 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.picklist-detail ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+}
+
+.picklist-detail .item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.picklist-detail .item:hover {
+  background-color: #e8f0fe;
+}
+
+.picklist-detail .item .code {
+  flex: 0 0 120px;
+  font-weight: bold;
+  color: #1976d2;
+}
+
+.picklist-detail .item .info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px 16px;
+  flex: 1;
+}
+
+.picklist-detail .item .info .name {
+  font-size: 0.9rem;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.picklist-detail .item .arrow {
+  flex: 0 0 24px;
+  text-align: center;
+  color: #999;
+}

@@ -1,58 +1,148 @@
 .detail {
-  max-width: 600px;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+  background-color: #f4f6f8;
 }
 
+/* Card principale */
 .detail-card {
-  background: #fff;
-  padding: 24px;
-  border-radius: 8px;
+  width: 100%;
+  max-width: 750px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
+/* Titolo */
+.detail-card h2 {
+  text-align: center;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin-bottom: 10px;
+}
+
+/* Righe info */
 .row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
 }
 
+.row:last-child {
+  border-bottom: none;
+}
+
+/* Label */
 .label {
-  font-weight: bold;
+  font-weight: 600;
   color: #555;
+  min-width: 140px;
 }
 
-.actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 24px;
+/* Stato GRN */
+.row .state {
+  font-weight: 600;
 }
 
-.btn-primary {
-  background: #1976d2;
-  color: white;
-}
-
-.btn-secondary {
-  background: #777676;
-}
-
-.btn-danger {
-  background: #d32f2f;
-  color: white;
-}
-
+/* Lista items */
 .grn-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .grn-item {
-  display: flex;
-  align-items: center;
+  background: #f9fafb;
+  border-radius: 12px;
   padding: 14px;
-  margin-bottom: 8px;
-  background: #f9f9f9;
-  border-radius: 8px;
+  border: 1px solid #e5e7eb;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.grn-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Info item */
+.grn-item .info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 12px;
+  font-size: 14px;
+}
+
+.grn-item .code {
+  font-weight: 600;
+}
+
+.grn-item .state {
+  font-weight: 600;
+}
+
+/* Stato vuoto */
+.empty-state {
+  text-align: center;
+  font-style: italic;
+  color: #999;
+  padding: 12px;
+}
+
+/* Azioni */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  gap: 12px;
+}
+
+.actions button {
+  flex: 1;
+}
+
+/* Pulsanti custom */
+.btn-secondary {
+  background-color: #e0e0e0 !important;
+  color: #333 !important;
+}
+
+.btn-danger {
+  background-color: #d32f2f !important;
+  color: #fff !important;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .detail-card {
+    padding: 20px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .label {
+    min-width: auto;
+  }
+
+  .grn-item .info {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
 }

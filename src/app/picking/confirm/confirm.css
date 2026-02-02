@@ -1,0 +1,66 @@
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+form {
+  max-width: 480px;
+  margin: 24px auto;
+  padding: 32px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.line-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.line-row mat-form-field {
+  flex: 1;
+}
+
+.line-row button[mat-icon-button] {
+  margin-top: 4px;
+}
+
+button[mat-raised-button] {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button[mat-raised-button]:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+button[mat-raised-button]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button[color="primary"] {
+  margin-top: 8px;
+}
+
+button[color="accent"] {
+  margin-top: 4px;
+}

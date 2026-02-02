@@ -15,14 +15,18 @@ export class GrnService {
     getGrnList(page: number, size: number): Observable<Page<Grn>> {
         return this.http.get<Page<Grn>>(this.baseUrl, {
             params: {
-                page,
-                size,
+                PageNumber: page,
+                PageSize: size,
             },
         });
     }
 
     getGrnById(id: number): Observable<Grn> {
         return this.http.get<Grn>(`${this.baseUrl}/${id}`);
+    }
+    
+    getGrnByCode(code: string): Observable<Grn> {
+      return this.http.get<Grn>(`${this.baseUrl}/code/${code}`);
     }
 
     createGrn(data: Grn): Observable<Grn> {
@@ -33,7 +37,4 @@ export class GrnService {
         return this.http.put<Grn>(`${this.baseUrl}/${id}`, data);
     }
 
-    deleteGrn(id: number): Observable<void> {
-        return this.http.delete<void>(`${this.baseUrl}/${id}`);
-    }
 }

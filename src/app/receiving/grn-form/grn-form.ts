@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { DateUtils } from '../../common/date.util';
 
 @Component({
   selector: 'app-grn-form',
@@ -22,17 +23,17 @@ export class GrnForm {
 
   ngOnInit() {
     this.grnForm = new FormGroup({
-      receivingDate: new FormControl(this.grn?.receivingDate || Date.now()),
-      supplier: new FormControl(this.grn?.supplier || ''),
+      receivingDate: new FormControl(DateUtils.today()),
+      supplier: new FormControl(this.grn?.supplier || '')
     });
-    const id = this.route.snapshot.paramMap.get('id');
+    const code = this.route.snapshot.paramMap.get('code');
 
-    if (id) {
+    if (code) {
       this.isEdit = true;
-      this.service.getGrnById(+id).subscribe((g) => {
+      this.service.getGrnByCode(code).subscribe((g) => {
         this.grn = g;
         this.grnForm.patchValue({
-          receivingDate: g.receivingDate,
+          receivingDate: DateUtils.toDateInputValue(new Date(g.receivingDate)),
           supplier: g.supplier,
         });
       });
