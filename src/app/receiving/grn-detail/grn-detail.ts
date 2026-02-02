@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Grn } from '../grn-list/grn.model';
+import { Grn } from '../models/grn.model';
 import { GrnService } from '../services/grn.service';
 import { CommonModule } from '@angular/common';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-grn-detail',
@@ -14,30 +14,32 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class GrnDetail implements OnInit {
   grn$?: Observable<Grn>;
+  grnCode!: string;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: GrnService) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadGrn(id);
+    this.grnCode = this.route.snapshot.paramMap.get('code')!;
+    this.loadGrn(this.grnCode);
   }
 
-  loadGrn(id: number): void {
-    this.grn$ = this.service.getGrnById(id);
+  loadGrn(code: string): void {
+    this.grn$ = this.service.getGrnByCode(code);
   }
 
   edit(id: number): void {
     this.router.navigate(['/grns', id, 'edit']);
   }
 
-  delete(id: number): void {
-    if (confirm('Vuoi eliminare questo GRN?')) {
-      this.service.deleteGrn(id).subscribe(() => this.router.navigate(['/grns']));
-    }
-  }
-
   goBack(): void {
     this.router.navigate(['/grns']);
   }
 
+  addItem(): void {
+    this.router.navigate(['/add-grn-item', this.grnCode]);
+  }
+
+  viewItemDetail(itemCode: string) {
+    this.router.navigate(['/grns', this.grnCode, 'items', itemCode]);
+  }
 }

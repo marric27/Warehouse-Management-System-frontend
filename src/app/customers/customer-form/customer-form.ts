@@ -22,11 +22,11 @@ export class CustomerForm {
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
+    const code = this.route.snapshot.paramMap.get('code');
 
-    if (id) {
+    if (code) {
       this.isEdit = true;
-      this.service.getCustomer(+id).subscribe(c => this.customer = c);
+      this.service.getCustomer(code).subscribe(c => this.customer = c);
     }
   }
 

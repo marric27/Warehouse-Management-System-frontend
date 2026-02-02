@@ -1,0 +1,38 @@
+<div class="page">
+  <div class="page-header">
+    <h2>Picklist</h2>
+    <button class="btn-primary" (click)="newPicklist()">+ Nuova picklist</button>
+  </div>
+
+  <ul class="list">
+    @if (picklists$ | async; as page) {
+      
+      @if (page.content.length === 0) {
+        <li class="empty-state">
+          <p>Nessuna picklist</p>
+        </li>
+      } @else {
+        @for (pl of page.content; track pl.code) {
+          <li class="item" [routerLink]="[pl.code]">
+            <div class="code">{{ pl.code }}</div>
+
+            <div class="info">
+              <div class="name">{{ pl.releaseNumber }}</div>
+              <div class="name">{{ pl.customerCode }}</div>
+            </div>
+
+            <div class="arrow">▶</div>
+          </li>
+        }
+      }
+
+      <mat-paginator
+        [length]="page.totalElements"
+        [pageSize]="pageSize"
+        [pageIndex]="pageIndex"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="onPageChange($event)">
+      </mat-paginator>
+    }
+  </ul>
+</div>

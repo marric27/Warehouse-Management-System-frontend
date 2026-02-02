@@ -22,12 +22,12 @@ export class ProductDetail implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadProduct(id);
+    const code = this.route.snapshot.paramMap.get('code');
+    this.loadProduct(code!);
   }
 
-  loadProduct(id: number) {
-    this.product$ = this.service.getProductById(id);
+  loadProduct(code: string) {
+    this.product$ = this.service.getProductByCode(code);
   }
 
   edit(id: number) {

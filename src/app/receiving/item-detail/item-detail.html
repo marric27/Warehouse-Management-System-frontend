@@ -1,0 +1,66 @@
+<div class="detail">
+  @if (grnItem$ | async; as item) {
+  <div class="detail-card">
+
+    <h2>{{ item.code }}</h2>
+
+    <div class="row">
+      <span class="label">Product Code</span>
+      <span>{{ item.productCode }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Expected Qty</span>
+      <span>{{ item.expectedQty }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Received Qty</span>
+      <span>{{ item.receivedQty }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Compliant Qty</span>
+      <span>{{ item.compliantQty }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Not Compliant Qty</span>
+      <span>{{ item.notCompliantQty }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">State</span>
+      <span class="badge">{{ item.state }}</span>
+    </div>
+
+    <div class="row column">
+      <span class="label">Checking Info</span>
+
+      <ul class="checking-list">
+        @if (item.checkingInfoList.length === 0) {
+          <li class="empty-state">No checking info available</li>
+        }
+        @else {
+          @for (check of item.checkingInfoList; track check.code) {
+            <li class="checking-info">
+              <div><strong>Code:</strong> {{ check.code }}</div>
+              <div><strong>Batch Number</strong> {{ check.batchNumber }}</div>
+              <div><strong>State:</strong> {{ check.state }}</div>
+              <div><strong>Quantity:</strong> {{ check.quantity }}</div>
+              <div><strong>Expiration date:</strong> {{ check.expirationDate }}</div>
+              <div><strong>Stock Unit Id:</strong> {{ check.stockUnitId }}</div>
+            </li>
+          }
+        }
+      </ul>
+    </div>
+
+    <div class="actions">
+      <button matButton="filled" class="btn-secondary" (click)="goBack()">Indietro</button>
+      <button matButton="filled" [disabled]="item.state === 'CHECKED' || item.state === 'PUTAWAY'" (click)="createStockUnit(item.code)">Crea Stock Unit</button>
+    </div>
+
+  </div>
+  }
+</div>

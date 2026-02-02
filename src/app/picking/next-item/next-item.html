@@ -1,0 +1,30 @@
+<h2>Select Next Item</h2>
+
+<form [formGroup]="nextForm" (ngSubmit)="submit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Picklist</mat-label>
+    <mat-select formControlName="pickListIds" multiple required>
+      @for (picklist of picklists; track picklist.id) {
+      <mat-option [value]="picklist.id">
+        {{ picklist.code }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="nextForm.invalid">
+    Submit
+  </button>
+</form>
+
+<div class="not-found">
+  @if(receivedItem) {
+    <h3>Next Item</h3>
+    <p><strong>Code:</strong> {{ receivedItem.code }}</p>
+    <p><strong>Product:</strong> {{ receivedItem.productCode }}</p>
+    <p><strong>Quantity:</strong> {{ receivedItem.qty }}</p>
+    <p><strong>State:</strong> {{ receivedItem.state }}</p>
+  } @else {
+     <p><strong>No item found</strong></p>
+  }
+</div>

@@ -1,0 +1,19 @@
+<h2>Create new Picklist from orders</h2>
+
+<form [formGroup]="picklistForm" (ngSubmit)="submit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Create Picklist</mat-label>
+    <mat-select formControlName="orders" multiple required>
+      @for (order of orders; track order.id) {
+      <mat-option [value]="order.id">
+        {{ order.code }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="picklistForm.invalid">
+    Submit
+  </button>
+</form>
+

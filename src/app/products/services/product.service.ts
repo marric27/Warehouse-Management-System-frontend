@@ -15,16 +15,20 @@ export class ProductService {
   getProducts(page: number, size: number) {
     return this.http.get<Page<Product>>(this.baseUrl, {
       params: {
-        page,
-        size,
+        PageNumber: page,
+        PageSize: size,
       },
     });
   }
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.baseUrl}/all`);
+  }
 
-  getProductById(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.baseUrl}/${id}`);
+  getProductByCode(code: string): Observable<Product> {
+    return this.http.get<Product>(`${this.baseUrl}/code/${code}`);
   }
   createProduct(product: Product) {
+    console.log(product);
     return this.http.post<Product>(this.baseUrl, product);
   }
   updateProduct(id: number | undefined, product: Product) {

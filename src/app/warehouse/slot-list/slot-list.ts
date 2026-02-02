@@ -4,7 +4,7 @@ import { AsyncPipe } from '@angular/common';
 import { Page } from '../../common/page.model';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { SlotService } from '../services/slot.service';
-import { Slot } from './slot.model';
+import { Slot } from '../models/slot.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -36,8 +36,8 @@ export class SlotList implements OnInit {
     this.loadSlots();
   }
 
-  goToSlotDetail(id: number) {
-    this.router.navigate(['/slots', id]);
+  goToSlotDetail(code: string) {
+    this.router.navigate(['/slots', code]);
   }
 
   goToNewSlot() {

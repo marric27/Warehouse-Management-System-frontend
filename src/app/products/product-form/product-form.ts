@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Product } from '../product/product.model';
 import { ProductService } from '../services/product.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Category } from '../../common/category.enum';
 
 @Component({
   selector: 'app-product-form',
@@ -18,6 +19,7 @@ export class ProductForm {
   productForm!: FormGroup;
   product: Product = {} as Product;
   isEdit = false;
+  categories = Object.values(Category);
 
   constructor(
     private route: ActivatedRoute,
@@ -30,11 +32,11 @@ export class ProductForm {
       name: new FormControl(this.product?.name || '', Validators.required),
       category: new FormControl(this.product?.category || '', Validators.required),
     });
-    const id = this.route.snapshot.paramMap.get('id');
+    const code = this.route.snapshot.paramMap.get('code');
 
-    if (id) {
+    if (code) {
       this.isEdit = true;
-      this.service.getProductById(+id).subscribe((p) => {
+      this.service.getProductByCode(code).subscribe((p) => {
         this.product = p;
         this.productForm.patchValue({
           name: p.name,

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { Slot } from '../slot-list/slot.model';
+import { Slot } from '../models/slot.model';
 import { SlotService } from '../services/slot.service';
 import {MatButtonModule} from '@angular/material/button';
 
@@ -18,12 +18,12 @@ slot$?: Observable<Slot>;
   constructor(private route: ActivatedRoute, private router: Router, private service: SlotService) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.loadSlot(id);
+    const code = this.route.snapshot.paramMap.get('code');
+    this.loadSlot(code!);
   }
 
-  loadSlot(id: number): void {
-    this.slot$ = this.service.getSlotById(id);
+  loadSlot(code: string): void {
+    this.slot$ = this.service.getSlotByCode(code);
   }
 
   edit(id: number): void {

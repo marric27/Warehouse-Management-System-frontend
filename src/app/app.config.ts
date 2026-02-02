@@ -2,10 +2,18 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { errorInterceptor } from './common/error/error.interceptor';
+import { requestInterceptor } from './request-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes)
+    provideRouter(routes),
+    provideHttpClient(
+      withInterceptors([errorInterceptor, requestInterceptor])
+    ),
+    MatSnackBarModule
   ]
 };

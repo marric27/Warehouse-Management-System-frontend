@@ -9,8 +9,11 @@
   <mat-form-field appearance="fill">
     <mat-label>Category</mat-label>
     <mat-select formControlName="category" required>
-      <mat-option value="STANDARD">STANDARD</mat-option>
-      <mat-option value="FLAMMABLE">FLAMMABLE</mat-option>
+      @for (c of categories; track $index) {
+      <mat-option [value]="c">
+        {{ c }}
+      </mat-option>
+      }
     </mat-select>
   </mat-form-field>
 
