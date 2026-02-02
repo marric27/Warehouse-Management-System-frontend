@@ -6,4 +6,5 @@ export interface Picklist {
     releaseNumber?: string;
     customerCode?: string;
     pickListItemList?: PickListItem[];
+    state: string;
 }
